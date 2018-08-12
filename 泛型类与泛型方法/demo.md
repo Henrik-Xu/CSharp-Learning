@@ -23,9 +23,9 @@
 
     public GenericStack(int count)
     {
-        this.count = count;
-        this.stackArray = new T[count];//初始化数组大小
-        this.currentPosition = 0;//当前位置默认值，索引从0开始
+      this.count = count;
+      this.stackArray = new T[count];//初始化数组大小
+      this.currentPosition = 0;//当前位置默认值，索引从0开始
     }
 
     /// <summary>
@@ -34,15 +34,15 @@
     /// <param name="item"></param>
     public void Push(T item)
     {
-        if (currentPosition >= count)
-        {
-            Console.WriteLine("栈空间已经满！");
-        }
-        else
-        {
-            this.stackArray[currentPosition] = item;//将当前元素压入栈
-            currentPosition++;//调整位置索引值
-        }
+      if (currentPosition >= count)
+      {
+          Console.WriteLine("栈空间已经满！");
+      }
+      else
+      {
+          this.stackArray[currentPosition] = item;//将当前元素压入栈
+          currentPosition++;//调整位置索引值
+      }
     }
     /// <summary>
     /// 出栈方法
@@ -50,9 +50,9 @@
     /// <returns></returns>
     public T Pop()
     {
-        T data = this.stackArray[currentPosition - 1];
-        currentPosition--;
-        return data;
+      T data = this.stackArray[currentPosition - 1];
+      currentPosition--;
+      return data;
     }
   }
 ```
@@ -62,43 +62,42 @@
 ```
 static void Main(string[] args)
 {
-    //【1】创建泛型类对象
-    GenericStack<int> stack1 = new GenericStack<int>(5);
-    //【2】入栈
-    stack1.Push(1);
-    stack1.Push(2);
-    stack1.Push(3);
-    stack1.Push(4);
-    stack1.Push(5);
-    //【3】出栈
-    Console.WriteLine(stack1.Pop());
-    Console.WriteLine(stack1.Pop());
-    Console.WriteLine(stack1.Pop());
-    Console.WriteLine(stack1.Pop());
-    Console.WriteLine(stack1.Pop());
+  //【1】创建泛型类对象
+  GenericStack<int> stack1 = new GenericStack<int>(5);
+  //【2】入栈
+  stack1.Push(1);
+  stack1.Push(2);
+  stack1.Push(3);
+  stack1.Push(4);
+  stack1.Push(5);
+  //【3】出栈
+  Console.WriteLine(stack1.Pop());
+  Console.WriteLine(stack1.Pop());
+  Console.WriteLine(stack1.Pop());
+  Console.WriteLine(stack1.Pop());
+  Console.WriteLine(stack1.Pop());
 
-    GenericStack<string> stack2 = new GenericStack<string>(5);
+  GenericStack<string> stack2 = new GenericStack<string>(5);
 
-    stack2.Push("课程1");
-    stack2.Push("课程2");
-    stack2.Push("课程3");
-    stack2.Push("课程4");
-    stack2.Push("课程5");
+  stack2.Push("课程1");
+  stack2.Push("课程2");
+  stack2.Push("课程3");
+  stack2.Push("课程4");
+  stack2.Push("课程5");
 
-    Console.WriteLine(stack2.Pop());
-    Console.WriteLine(stack2.Pop());
-    Console.WriteLine(stack2.Pop());
-    Console.WriteLine(stack2.Pop());
-    Console.WriteLine(stack2.Pop());
+  Console.WriteLine(stack2.Pop());
+  Console.WriteLine(stack2.Pop());
+  Console.WriteLine(stack2.Pop());
+  Console.WriteLine(stack2.Pop());
+  Console.WriteLine(stack2.Pop());
 
-    Console.Read();
-
+  Console.Read();
 }
 ```
 
 ## Demo 2.(泛型类中使用的几个关键点)
 
-### No 1. `default`关键字的使用
+### No 1. `default`关键字的使用([default 关键字](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/statements-expressions-operators/default-value-expressions))
 
 #### 新建一个类`GenericClass1.cs`
 
@@ -109,53 +108,53 @@ public class GenericClass1<T1, T2>
 
   public GenericClass1()
   {
-      //泛型使用的两种错误
-      //obj1 = null;
-      //obj1 = new T1(); //不能人为假定某种类型，因为这种类型也许没有构造方法，也许是私有的
+    //泛型使用的两种错误
+    //obj1 = null;
+    //obj1 = new T1(); //不能人为假定某种类型，因为这种类型也许没有构造方法，也许是私有的
 
-      //解决方法：default关键字
-      obj1 = default(T1); //如果T1是引用类型，就赋值null，如果是值类型就给默认值，
-                          //如果是结构体，则成员的具体默认值取决于成员的类型
+    //解决方法：default关键字
+    obj1 = default(T1); //如果T1是引用类型，就赋值null，如果是值类型就给默认值，
+                        //如果是结构体，则成员的具体默认值取决于成员的类型
   }
 }
 ```
 
-### No 2. 添加约束类型的泛型类
+### No 2. 添加约束类型的泛型类([类型参数的约束](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters))
 
 #### 新建一个类`GenericClass2.cs`
 
 ```
 public class GenericClass2<T1, T2, T3>
-      where T1 : struct //类型必须是结构类型
-      where T2 : class  //类型必须是引用类型
-      where T3 : new()  //在这个类中，类型必须有一个无参数的构造方法，且必须把这个约束放到最后。
-                        // 其他类型-->基类类型  where T2：T1{}  表示T2必须与T1类型相同或者继承自T1
-                        // 接口类型（类型必须是接口或者实现了接口）
+    where T1 : struct //类型必须是结构类型
+    where T2 : class  //类型必须是引用类型
+    where T3 : new()  //在这个类中，类型必须有一个无参数的构造方法，且必须把这个约束放到最后。
+                      // 其他类型-->基类类型  where T2：T1{}  表示T2必须与T1类型相同或者继承自T1
+                      // 接口类型（类型必须是接口或者实现了接口）
 {
-    //产品列表
-    public List<T2> ProductList { get; set; }
+  //产品列表
+  public List<T2> ProductList { get; set; }
 
-    //产品发行者
-    public T3 Publisher { get; set; }
+  //产品发行者
+  public T3 Publisher { get; set; }
 
 
-    public GenericClass2()
-    {
-        ProductList = new List<T2>();
-        Publisher = new T3();
-    }
+  public GenericClass2()
+  {
+      ProductList = new List<T2>();
+      Publisher = new T3();
+  }
 
-    /// <summary>
-    /// 购买第几个产品
-    /// </summary>
-    /// <param name="num"></param>
-    /// <returns></returns>
-    public T2 BuyProduct(T1 num)
-    {
-        //  return ProductList[num]; //直接写是错误的
-        dynamic index = num;
-        return ProductList[index];
-    }
+  /// <summary>
+  /// 购买第几个产品
+  /// </summary>
+  /// <param name="num"></param>
+  /// <returns></returns>
+  public T2 BuyProduct(T1 num)
+  {
+      //  return ProductList[num]; //直接写是错误的
+      dynamic index = num;
+      return ProductList[index];
+  }
 }
 ```
 
@@ -201,41 +200,41 @@ static void Main(string[] args)
 }
 ```
 
-## Demo 3.泛型方法实现四则混合运算
+## Demo 3.泛型方法实现四则混合运算 ([dynamic 关键字](https://docs.microsoft.com/zh-CN/dotnet/csharp/language-reference/keywords/dynamic))
 
 ```
 static T Add1<T>(T a, T b)
-  {
-      //  return a + b; //这种写法是错误的
-      dynamic a1 = a;//动态类型仅在编译期间存在，运行期间会被object类型替代（编译的时候不考虑具体类型）
-      dynamic b1 = b;
-      return a1 + b1;
-  }
+{
+  //  return a + b; //这种写法是错误的
+  dynamic a1 = a;//动态类型仅在编译期间存在，运行期间会被object类型替代（编译的时候不考虑具体类型）
+  dynamic b1 = b;
+  return a1 + b1;
+}
 
-  static T Add2<T>(T a, T b) where T : struct
-  {
-      dynamic a1 = a;
-      dynamic b1 = b;
-      return a1 + b1;
-  }
+static T Add2<T>(T a, T b) where T : struct
+{
+  dynamic a1 = a;
+  dynamic b1 = b;
+  return a1 + b1;
+}
 
-  static T Sub<T>(T a, T b) where T : struct
-  {
-      dynamic a1 = a;
-      dynamic b1 = b;
-      return a1 - b1;
-  }
+static T Sub<T>(T a, T b) where T : struct
+{
+  dynamic a1 = a;
+  dynamic b1 = b;
+  return a1 - b1;
+}
 
-  static T Multiply<T>(T a, T b) where T : struct
-  {
-      dynamic a1 = a;
-      dynamic b1 = b;
-      return a1 * b1;
-  }
-  static T Div<T>(T a, T b) where T : struct
-  {
-      dynamic a1 = a;
-      dynamic b1 = b;
-      return a1 / b1;
-  }
+static T Multiply<T>(T a, T b) where T : struct
+{
+  dynamic a1 = a;
+  dynamic b1 = b;
+  return a1 * b1;
+}
+static T Div<T>(T a, T b) where T : struct
+{
+  dynamic a1 = a;
+  dynamic b1 = b;
+  return a1 / b1;
+}
 ```
