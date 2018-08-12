@@ -1,61 +1,157 @@
-## 热身（基于泛型类的出栈入栈）
+## Demo 1.热身（基于泛型类的出栈入栈）
 
 ### Step 1.新建一个`GenericStack.cs`类，写入以下代码
 
 ```
  /*
-  泛型的好处：增加类型安全，编码灵活性提高
-  常见泛型：泛型类、泛型方法
-  后续深入：泛型委托（自定义委托、常见系统泛型委托Func、Action）
-  泛型类的规范： pulic class 类名<T>{类的成员...}
-  T: 仅仅是一个占位符，只要符合C#命名规范即可  但是一般使用T
-  表示一个通用的数据类型，在使用的时候用实际的类型代替
-  如果包含任意多个类型的参数，参数之间用逗号分隔。
-  GenericStack<T1，T2，T3>{...}
+  泛型的好处：增加类型安全，编码灵活性提高;
+  常见泛型：泛型类、泛型方法;后续深入：泛型委托（自定义委托、常见系统泛型委托Func、Action）
+  泛型类的规范： public class 类名<T>{类的成员...};T: 仅仅是一个占位符，只要符合C#命名规范即可,但是一般使用T,表示一个通用的数据类型，在使用的时候用实际的类型代替。如果包含任意多个类型的参数，参数之间用逗号分隔。GenericStack<T1，T2，T3>{...}
   所定义的各种类型参数，可以用做成员变量的类型、属性、方法等返回值类型及方法参数...
 */
  /// <summary>
  /// 泛型堆栈：入栈和出栈操作类（任意类型）
  /// </summary>
  /// <typeParam name="T">可以是任意类型</typeParam>
- public class GenericStack<T>
+  public class GenericStack<T>
+  {
+    private T[] stackArray;//泛型数组
+    private int currentPosition;//当前位置
+    private int count;//栈的数据容量
+
+    public GenericStack(int count)
     {
-        private T[] stackArray;//泛型数组
-        private int currentPosition;//当前位置
-        private int count;//栈的数据容量
+        this.count = count;
+        this.stackArray = new T[count];//初始化数组大小
+        this.currentPosition = 0;//当前位置默认值，索引从0开始
+    }
 
-        public GenericStack(int count)
+    /// <summary>
+    /// 入栈方法
+    /// </summary>
+    /// <param name="item"></param>
+    public void Push(T item)
+    {
+        if (currentPosition >= count)
         {
-            this.count = count;
-            this.stackArray = new T[count];//初始化数组大小
-            this.currentPosition = 0;//当前位置默认值，索引从0开始
+            Console.WriteLine("栈空间已经满！");
         }
-
-        /// <summary>
-        /// 入栈方法
-        /// </summary>
-        /// <param name="item"></param>
-        public void Push(T item)
+        else
         {
-            if (currentPosition >= count)
-            {
-                Console.WriteLine("栈空间已经满！");
-            }
-            else
-            {
-                this.stackArray[currentPosition] = item;//将当前元素压入栈
-                currentPosition++;//调整位置索引值
-            }
-        }
-        /// <summary>
-        /// 出栈方法
-        /// </summary>
-        /// <returns></returns>
-        public T Pop()
-        {
-            T data = this.stackArray[currentPosition - 1];
-            currentPosition--;
-            return data;
+            this.stackArray[currentPosition] = item;//将当前元素压入栈
+            currentPosition++;//调整位置索引值
         }
     }
+    /// <summary>
+    /// 出栈方法
+    /// </summary>
+    /// <returns></returns>
+    public T Pop()
+    {
+        T data = this.stackArray[currentPosition - 1];
+        currentPosition--;
+        return data;
+    }
+  }
+```
+
+### Step 2.在`Program.cs`文件中调用方法
+
+```
+static void Main(string[] args)
+{
+    //【1】创建泛型类对象
+    GenericStack<int> stack1 = new GenericStack<int>(5);
+    //【2】入栈
+    stack1.Push(1);
+    stack1.Push(2);
+    stack1.Push(3);
+    stack1.Push(4);
+    stack1.Push(5);
+    //【3】出栈
+    Console.WriteLine(stack1.Pop());
+    Console.WriteLine(stack1.Pop());
+    Console.WriteLine(stack1.Pop());
+    Console.WriteLine(stack1.Pop());
+    Console.WriteLine(stack1.Pop());
+
+    GenericStack<string> stack2 = new GenericStack<string>(5);
+
+    stack2.Push("课程1");
+    stack2.Push("课程2");
+    stack2.Push("课程3");
+    stack2.Push("课程4");
+    stack2.Push("课程5");
+
+    Console.WriteLine(stack2.Pop());
+    Console.WriteLine(stack2.Pop());
+    Console.WriteLine(stack2.Pop());
+    Console.WriteLine(stack2.Pop());
+    Console.WriteLine(stack2.Pop());
+
+    Console.Read();
+
+}
+```
+
+## Demo 2.(泛型类中使用的几个关键点)
+
+### No 1. `default`关键字的使用
+
+#### 新建一个类`GenericClass1.cs`
+
+```
+public class GenericClass1<T1, T2>
+{
+  private T1 obj1;
+
+  public GenericClass1()
+  {
+      //泛型使用的两种错误
+      //obj1 = null;
+      //obj1 = new T1(); //不能人为假定某种类型，因为这种类型也许没有构造方法，也许是私有的
+
+      //解决方法：default关键字
+      obj1 = default(T1); //如果T1是引用类型，就赋值null，如果是值类型就给默认值 ，如果是结构体，则成员的具体默认值取决于成员的类型
+  }
+  }
+```
+
+## No 2. `添加约束类型的泛型类`
+
+#### 新建一个类`GenericClass2.cs`
+
+```
+public class GenericClass2<T1, T2, T3>
+      where T1 : struct //类型必须是结构类型
+      where T2 : class  //类型必须是引用类型
+      where T3 : new()  //在这个类中，类型必须有一个无参数的构造方法，且必须把这个约束放到最后。
+                        // 其他类型-->基类类型  where T2：T1{}  表示T2必须与T1类型相同或者继承自T1
+                        // 接口类型（类型必须是接口或者实现了接口）
+  {
+      //产品列表
+      public List<T2> ProductList { get; set; }
+
+      //产品发行者
+      public T3 Publisher { get; set; }
+
+
+      public GenericClass2()
+      {
+          ProductList = new List<T2>();
+          Publisher = new T3();
+      }
+
+      /// <summary>
+      /// 购买第几个产品
+      /// </summary>
+      /// <param name="num"></param>
+      /// <returns></returns>
+      public T2 BuyProduct(T1 num)
+      {
+          //  return ProductList[num]; //直接写是错误的
+          dynamic index = num;
+          return ProductList[index];
+      }
+  }
 ```
