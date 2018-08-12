@@ -15,46 +15,46 @@
  /// 泛型堆栈：入栈和出栈操作类（任意类型）
  /// </summary>
  /// <typeParam name="T">可以是任意类型</typeParam>
-  public class GenericStack<T>
+public class GenericStack<T>
+{
+  private T[] stackArray;//泛型数组
+  private int currentPosition;//当前位置
+  private int count;//栈的数据容量
+
+  public GenericStack(int count)
   {
-    private T[] stackArray;//泛型数组
-    private int currentPosition;//当前位置
-    private int count;//栈的数据容量
+    this.count = count;
+    this.stackArray = new T[count];//初始化数组大小
+    this.currentPosition = 0;//当前位置默认值，索引从0开始
+  }
 
-    public GenericStack(int count)
+  /// <summary>
+  /// 入栈方法
+  /// </summary>
+  /// <param name="item"></param>
+  public void Push(T item)
+  {
+    if (currentPosition >= count)
     {
-      this.count = count;
-      this.stackArray = new T[count];//初始化数组大小
-      this.currentPosition = 0;//当前位置默认值，索引从0开始
+        Console.WriteLine("栈空间已经满！");
     }
-
-    /// <summary>
-    /// 入栈方法
-    /// </summary>
-    /// <param name="item"></param>
-    public void Push(T item)
+    else
     {
-      if (currentPosition >= count)
-      {
-          Console.WriteLine("栈空间已经满！");
-      }
-      else
-      {
-          this.stackArray[currentPosition] = item;//将当前元素压入栈
-          currentPosition++;//调整位置索引值
-      }
-    }
-    /// <summary>
-    /// 出栈方法
-    /// </summary>
-    /// <returns></returns>
-    public T Pop()
-    {
-      T data = this.stackArray[currentPosition - 1];
-      currentPosition--;
-      return data;
+        this.stackArray[currentPosition] = item;//将当前元素压入栈
+        currentPosition++;//调整位置索引值
     }
   }
+  /// <summary>
+  /// 出栈方法
+  /// </summary>
+  /// <returns></returns>
+  public T Pop()
+  {
+    T data = this.stackArray[currentPosition - 1];
+    currentPosition--;
+    return data;
+  }
+}
 ```
 
 ### Step 2.在`Program.cs`文件中调用方法
@@ -237,4 +237,41 @@ static T Div<T>(T a, T b) where T : struct
   dynamic b1 = b;
   return a1 / b1;
 }
+```
+
+## Demo 4.泛型委托
+
+首先，你需要定义一个泛型委托
+
+```
+public delegate T MyGenericDelegate<T>(T a, T b);
+```
+
+然后，定义和委托签名相同的方法
+
+```
+static int Add(int a, int b)
+{
+    return a + b;
+}
+static double Sub(double a, double b)
+{
+    return a - b;
+}
+```
+
+接着，泛型委托就跟普通委托的使用方法没有任何区别了
+
+```
+        static void Main(string[] args)
+        {
+            //使用委托
+            MyGenericDelegate<int> mydelegate1 = Add;
+            MyGenericDelegate<double> mydelegate2 = Sub;
+
+            Console.WriteLine(mydelegate1(10, 20));
+            Console.WriteLine(mydelegate2(10.5, 20.6));
+
+            Console.Read();
+        }
 ```
