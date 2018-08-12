@@ -2,8 +2,8 @@
 
 This is a basic guide to teach you how to use basic C# language programmar.
 
-[01.OOP 设计原则、继承与多态]
+- [01.OOP 设计原则、继承与多态](https://github.com/Damon-Salvatore/CSharp-Learning)
 
-[02.接口与多态]
+- [02.接口与多态](https://github.com/Damon-Salvatore/CSharp-Learning)
 
-[03.泛型类与泛型方法]
+- [03.泛型类与泛型方法](https://github.com/Damon-Salvatore/CSharp-Learning)
