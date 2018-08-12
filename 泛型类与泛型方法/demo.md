@@ -99,7 +99,7 @@ static void Main(string[] args)
 
 ### No 1. `default`关键字的使用([default 关键字](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/statements-expressions-operators/default-value-expressions))
 
-#### 新建一个类`GenericClass1.cs`
+新建一个类`GenericClass1.cs`
 
 ```
 public class GenericClass1<T1, T2>
@@ -121,7 +121,7 @@ public class GenericClass1<T1, T2>
 
 ### No 2. 添加约束类型的泛型类([类型参数的约束](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters))
 
-#### 新建一个类`GenericClass2.cs`
+新建一个类`GenericClass2.cs`
 
 ```
 public class GenericClass2<T1, T2, T3>
@@ -175,7 +175,7 @@ class Teacher
 }
 ```
 
-### 然后在`Program.cs`中调用方法
+然后在`Program.cs`中调用方法
 
 ```
 static void Main(string[] args)
@@ -263,15 +263,45 @@ static double Sub(double a, double b)
 接着，泛型委托就跟普通委托的使用方法没有任何区别了
 
 ```
-        static void Main(string[] args)
-        {
-            //使用委托
-            MyGenericDelegate<int> mydelegate1 = Add;
-            MyGenericDelegate<double> mydelegate2 = Sub;
+static void Main(string[] args)
+{
+  //使用委托
+  MyGenericDelegate<int> mydelegate1 = Add;
+  MyGenericDelegate<double> mydelegate2 = Sub;
 
-            Console.WriteLine(mydelegate1(10, 20));
-            Console.WriteLine(mydelegate2(10.5, 20.6));
+  Console.WriteLine(mydelegate1(10, 20));
+  Console.WriteLine(mydelegate2(10.5, 20.6));
 
-            Console.Read();
-        }
+  Console.Read();
+}
 ```
+
+有时候，委托的名字对我们没有实际意义，所以我们可以直接使用系统委托,帮助我们简化代码，
+比如上例可以直接使用系统的(Func)[https://msdn.microsoft.com/zh-cn/library/bb534960.aspx],接收多个参数且最后一个参数为函数返回值的委托。
+
+```
+Func<int,int,int> func1=Add;
+Fun<double,double,double> func2=Sub;
+```
+
+如果方法名字对我们不是很重要，我们可以把方法名也去掉，使用(匿名函数)[https://msdn.microsoft.com/zh-cn/library/0yw3tz5k(v=vs.110).aspx]
+
+```
+Func<int, int, int> func1 = delegate (int a, int b)
+{
+    return a + b;
+};
+Func<double, double, double> func2 = delegate (double a, double b)
+{
+  return a - b;
+};
+```
+
+甚至，你可以使用(lambda)[https://msdn.microsoft.com/zh-cn/library/bb397687(v=vs.110).aspx]表达式来简化方法
+
+```
+Func<int, int, int> func1 = (a, b) => a + b;
+Func<double, double, double> func2 =(a,b)=> a - b;
+```
+
+最后，你还需要了解一下另一个系统委托(Action)[https://msdn.microsoft.com/zh-cn/library/system.action.aspx],接收多个参数而没有返回值的委托。
