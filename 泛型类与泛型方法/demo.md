@@ -277,14 +277,14 @@ static void Main(string[] args)
 ```
 
 有时候，委托的名字对我们没有实际意义，所以我们可以直接使用系统委托,帮助我们简化代码，
-比如上例可以直接使用系统的(Func)[https://msdn.microsoft.com/zh-cn/library/bb534960.aspx],接收多个参数且最后一个参数为函数返回值的委托。
+比如上例可以直接使用系统的[Func](https://msdn.microsoft.com/zh-cn/library/bb534960.aspx),接收多个参数且最后一个参数为函数返回值的委托。
 
 ```
 Func<int,int,int> func1=Add;
 Fun<double,double,double> func2=Sub;
 ```
 
-如果方法名字对我们不是很重要，我们可以把方法名也去掉，使用(匿名函数)[https://msdn.microsoft.com/zh-cn/library/0yw3tz5k(v=vs.110).aspx]
+如果方法名字对我们不是很重要，我们可以把方法名也去掉，使用[匿名函数](<https://msdn.microsoft.com/zh-cn/library/0yw3tz5k(v=vs.110).aspx>)
 
 ```
 Func<int, int, int> func1 = delegate (int a, int b)
@@ -297,11 +297,11 @@ Func<double, double, double> func2 = delegate (double a, double b)
 };
 ```
 
-甚至，你可以使用(lambda)[https://msdn.microsoft.com/zh-cn/library/bb397687(v=vs.110).aspx]表达式来简化方法
+甚至，你可以使用[lambda](<https://msdn.microsoft.com/zh-cn/library/bb397687(v=vs.110).aspx>)表达式来简化方法
 
 ```
 Func<int, int, int> func1 = (a, b) => a + b;
 Func<double, double, double> func2 =(a,b)=> a - b;
 ```
 
-最后，你还需要了解一下另一个系统委托(Action)[https://msdn.microsoft.com/zh-cn/library/system.action.aspx],接收多个参数而没有返回值的委托。
+最后，你还需要了解一下另一个系统委托[Action](https://msdn.microsoft.com/zh-cn/library/system.action.aspx),接收多个参数而没有返回值的委托。
