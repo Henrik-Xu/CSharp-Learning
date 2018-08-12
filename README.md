@@ -1,7 +1,5 @@
 # CSharp-Learning
 
-This is a basic guide to teach you how to use basic C# language programmar.
-
 - [OOP 设计原则、继承与多态](https://github.com/Damon-Salvatore/CSharp-Learning)
 
 - [接口与多态](https://github.com/Damon-Salvatore/CSharp-Learning)
