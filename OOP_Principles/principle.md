@@ -1,4 +1,5 @@
 ## 面向对象核心原则概述
+
 ### 一、单一职责原则（SRP：Single responsibility principle）
 
 1. 针对谁提出的？
