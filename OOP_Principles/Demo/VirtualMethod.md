@@ -34,7 +34,7 @@ abstract class Animal
 }
 ```
 
-### `Cat.cs`中的代码如下
+### `Cat.cs`的代码如下
 
 ```
 class Cat : Animal
@@ -54,7 +54,7 @@ class Cat : Animal
 }
 ```
 
-### `Dog.cs`中的代码如下
+### `Dog.cs`的代码如下
 
 ```
 class Dog : Animal
@@ -81,7 +81,7 @@ class Dog : Animal
 }
 ```
 
-### `Program.cs的代码如下`
+### `Program.cs`的代码如下
 
 ```
 class Program

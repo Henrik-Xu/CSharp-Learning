@@ -19,7 +19,7 @@ class Animal
 }
 ```
 
-### 修改`Cat.cs`中的代码
+### `Cat.cs`的代码如下
 
 ```
 class Cat : Animal
@@ -32,7 +32,7 @@ class Cat : Animal
 }
 ```
 
-### 修改`Dog.cs`中的代码
+### `Dog.cs`的代码如下
 
 ```
 class Dog : Animal
@@ -45,7 +45,7 @@ class Dog : Animal
 }
 ```
 
-### `Program.cs`中的代码如下
+### `Program.cs`的代码如下
 
 ```
 class Program

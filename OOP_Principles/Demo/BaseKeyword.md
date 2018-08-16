@@ -1,6 +1,6 @@
 ## base 关键字的使用（base 关键字用来调用父类的构造方法）
 
-### 修改`Animal.cs`中的内容
+###`Animal.cs`的代码如下
 
 ```
 class Animal
@@ -29,7 +29,7 @@ class Animal
 }
 ```
 
-### 修改`Cat.cs`中的内容
+### `Cat.cs`的代码如下
 
 ```
 class Cat : Animal
@@ -48,7 +48,7 @@ class Cat : Animal
 }
 ```
 
-### 修改`Dog.cs`中的内容
+### `Dog.cs`的代码如下
 
 ```
 class Dog : Animal
@@ -67,7 +67,7 @@ class Dog : Animal
 }
 ```
 
-### 修改`Program.cs`中的内容
+### `Program.cs`的代码如下
 
 ```
 class Program
