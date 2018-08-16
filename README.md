@@ -1,6 +1,6 @@
 # CSharp-Learning
 
-- [OOP 设计原则、继承与多态](https://github.com/Damon-Salvatore/CSharp-Learning/tree/master/OOP_Principles)
+- [OOP 设计原则、继承与多态](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/OOP_Principles/readme.md)
 
 - [接口与多态](https://github.com/Damon-Salvatore/CSharp-Learning)
 
