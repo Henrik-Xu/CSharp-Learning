@@ -10,9 +10,9 @@ abstract class Animal
   public Animal() { }
   public Animal(string name, string color, string kind)
   {
-      this.Color = color;
-      this.Name = name;
-      this.Kind = kind;
+    this.Color = color;
+    this.Name = name;
+    this.Kind = kind;
   }
   public string Name { get; set; }//名字
   public string Color { get; set; }//颜色
@@ -22,14 +22,14 @@ abstract class Animal
   //自我介绍
   public void Introduce()
   {
-      string info = string.Format("我是漂亮的{0}，我的名字叫{1}，身穿{2}的衣服，我爱吃{3}！",
-          Kind, Name, Color, Favorite);
-      Console.WriteLine(info);
+    string info = string.Format("我是漂亮的{0}，我的名字叫{1}，身穿{2}的衣服，我爱吃{3}！",
+        Kind, Name, Color, Favorite);
+    Console.WriteLine(info);
   }
   //虚方法
   public virtual void Have()
   {
-      Console.WriteLine("我们要吃饭啦！");
+    Console.WriteLine("我们要吃饭啦！");
   }
 }
 ```
@@ -42,13 +42,13 @@ class Cat : Animal
   public Cat(string name, string color, string kind, string favorite)
       : base(name, color, kind)
   {
-      this.Favorite = favorite;
+    this.Favorite = favorite;
   }
   //跳舞
   public void Dancing()
   {
-      base.Introduce();
-      Console.WriteLine("下面我给大家表演《小猫迪斯科》，请大家鼓掌啊：>");
+    base.Introduce();
+    Console.WriteLine("下面我给大家表演《小猫迪斯科》，请大家鼓掌啊：>");
   }
 }
 }
@@ -63,20 +63,20 @@ class Dog : Animal
   public Dog(string name, string color, string kind, string favorite)
       : base(name, color, kind)
   {
-      this.Favorite = favorite;
+    this.Favorite = favorite;
   }
   //赛跑
   public void Race()
   {
-      base.Introduce();
-      Console.WriteLine("下面我给大家表演《狗狗精彩百米跨栏》，请大家鼓掌啊：>");
+    base.Introduce();
+    Console.WriteLine("下面我给大家表演《狗狗精彩百米跨栏》，请大家鼓掌啊：>");
   }
   #endregion
   //吃饭
   public override void Have()
   {
-      base.Have();
-      Console.WriteLine("我们要吃香喷喷的排骨啦！");
+    base.Have();
+    Console.WriteLine("我们要吃香喷喷的排骨啦！");
   }
 }
 ```

@@ -37,18 +37,18 @@ class Cat : Animal
   public Cat(string name, string color, string kind, string favorite)
       : base(name, color, kind)
   {
-      this.Favorite = favorite;
+    this.Favorite = favorite;
   }
   //跳舞
   public void Dancing()
   {
-      base.Introduce();
-      Console.WriteLine("下面我给大家表演《小猫迪斯科》，请大家鼓掌啊：>");
+    base.Introduce();
+    Console.WriteLine("下面我给大家表演《小猫迪斯科》，请大家鼓掌啊：>");
   }
   /吃饭
   public void Have()
   {
-      Console.WriteLine("我们要吃香喷喷的烤鱼啦！");
+    Console.WriteLine("我们要吃香喷喷的烤鱼啦！");
   }
 }
 ```
@@ -61,18 +61,18 @@ class Dog : Animal
   public Dog(string name, string color, string kind, string favorite)
       : base(name, color, kind)
   {
-      this.Favorite = favorite;
+    this.Favorite = favorite;
   }
   //赛跑
   public void Race()
   {
-      base.Introduce();
-      Console.WriteLine("下面我给大家表演《狗狗精彩百米跨栏》，请大家鼓掌啊：>");
+    base.Introduce();
+    Console.WriteLine("下面我给大家表演《狗狗精彩百米跨栏》，请大家鼓掌啊：>");
   }
   //吃饭
   public void Have()
   {
-      Console.WriteLine("我们要吃香喷喷的排骨啦！");
+    Console.WriteLine("我们要吃香喷喷的排骨啦！");
   }
 }
 ```
@@ -80,29 +80,26 @@ class Dog : Animal
 ### `Program.cs的代码如下`
 
 ```
-namespace ChildClassAndSuperClass
+class Program
 {
-  class Program
+  static void Main(string[] args)
   {
-    static void Main(string[] args)
+    //创建一只狗和一只猫
+    Cat objCat = new Cat("球球儿", "黄色", "小花猫", "小鱼");
+    Dog objDog = new Dog("棒棒", "黑色", "小黑狗", "排骨");
+    //将子类对象添加的父类集合
+    List<Animal> list = new List<Animal>();
+    list.Add(objCat);
+    list.Add(objDog);
+    //取出子类对象
+    foreach (Animal obj in list)
     {
-      //创建一只狗和一只猫
-      Cat objCat = new Cat("球球儿", "黄色", "小花猫", "小鱼");
-      Dog objDog = new Dog("棒棒", "黑色", "小黑狗", "排骨");
-      //将子类对象添加的父类集合
-      List<Animal> list = new List<Animal>();
-      list.Add(objCat);
-      list.Add(objDog);
-      //取出子类对象
-      foreach (Animal obj in list)
-      {
-          if (obj is Cat)
-              ((Cat)obj).Have();
-          else if (obj is Dog)
-              ((Dog)obj).Have();
-      }
-      Console.ReadLine();
+        if (obj is Cat)
+            ((Cat)obj).Have();
+        else if (obj is Dog)
+            ((Dog)obj).Have();
     }
+    Console.ReadLine();
   }
 }
 ```
