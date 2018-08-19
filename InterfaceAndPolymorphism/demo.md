@@ -2,9 +2,9 @@
 
 ### 1. .NET 中接口的定义规范
 
-&nbsp;&nbsp;&nbsp;&nbsp;a.使用关键字 interface 定义，接口类名称通常使用“I”开头。  
+&nbsp;&nbsp;&nbsp;&nbsp;a.使用关键字 `interface` 定义，接口类名称通常使用`I`开头。  
 &nbsp;&nbsp;&nbsp;&nbsp;b.接口中的属性、方法等，只是做一个声明，而没有任何实现。  
-&nbsp;&nbsp;&nbsp;&nbsp;c.接口中的属性、方法等，默认都是 public,不要画蛇添足。
+&nbsp;&nbsp;&nbsp;&nbsp;c.接口中的属性、方法等，默认都是 `public`,不要画蛇添足。
 
 ### 2.接口的特点
 
@@ -31,7 +31,7 @@
 |        |       需要`override`实现抽象方法       |           直接实现           |
 | 相似点 |            都不能直接实例化            |
 |        |           都包含未实现的方法           |
-|        | 子类后“接口实现类”必须实现未实现的方法 |
+|        | 子类或“接口实现类”必须实现未实现的方法 |
 
 ### 6. demo
 
@@ -148,9 +148,9 @@ class Program
   //多态特性（接口作为方法的返回值、接口作为方法的参数）
   static void Print(IMultiPrinter printer)
   {
-      printer.Print("个人信息表");
-      printer.Copy("个人信息");
-      printer.Fax("身份证");
+    printer.Print("个人信息表");
+    printer.Copy("个人信息");
+    printer.Fax("身份证");
   }
 }
 ```
