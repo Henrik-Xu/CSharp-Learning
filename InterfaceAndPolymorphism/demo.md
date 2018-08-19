@@ -32,3 +32,125 @@
 | 相似点 |            都不能直接实例化            |
 |        |           都包含未实现的方法           |
 |        | 子类后“接口实现类”必须实现未实现的方法 |
+
+### 6. demo
+
+新建一个接口定义类`IMultiPrint.cs`类
+
+```
+/// <summary>
+/// 多功能打印机接口
+/// </summary>
+public interface IMultiPrinter
+{
+  // 打印
+  void Print(string contents);
+  //复印
+  void Copy(string contents);
+  // 传真
+  bool Fax(string contents);
+}
+```
+
+然后分别定义三个具体的类实现`IMultiPrint`接口：
+
+`CanonPrinter.cs`
+
+```
+public class CanonPrinter : IMultiPrinter
+{
+  public void Print(string contents)
+  {
+    //在这里编写打印程序...
+    Console.WriteLine("佳能打印机正在打印：" + contents);
+  }
+  public void Copy(string contents)
+  {
+    //在这里编写复印程序...
+    Console.WriteLine("佳能打印机正在复印：" + contents);
+  }
+  public bool Fax(string contents)
+  {
+    //在这里编写传真程序...
+    Console.WriteLine("佳能打印机正在传真：" + contents);
+    return true;
+  }
+}
+```
+
+`EpsonMultiPrinter.cs`
+
+```
+public  class EpsonMultiPrinter:IMultiPrinter
+{
+  public void Print(string contents)
+  {
+    //在这里编写打印程序...
+    Console.WriteLine("欢迎使用Epson打印机！");
+    Console.WriteLine("Epson打印机正在打印：" + contents);
+  }
+  public void Copy(string contents)
+  {
+    //在这里编写复印程序...
+    Console.WriteLine("欢迎使用Epson打印机！");
+    Console.WriteLine("Epson打印机正在复印：" + contents);
+  }
+  public bool Fax(string contents)
+  {
+    //在这里编写传真程序...
+    Console.WriteLine("欢迎使用Epson打印机！");
+    Console.WriteLine("Epson打印机正在传真：" + contents);
+    return true;
+  }
+}
+```
+
+`HPMultiPrinter.cs`
+
+```
+class HPMultiPrinter : IMultiPrinter
+{
+  public void Print(string contents)
+  {
+    //在这里编写打印程序...
+    Console.WriteLine("欢迎使用HP打印机！");
+    Console.WriteLine("HP打印机正在打印：" + contents);
+  }
+  public void Copy(string contents)
+  {
+    //在这里编写复印程序...
+    Console.WriteLine("欢迎使用HP打印机！");
+    Console.WriteLine("HP打印机正在复印：" + contents);
+  }
+  public bool Fax(string contents)
+  {
+    //在这里编写传真程序...
+    Console.WriteLine("欢迎使用HP打印机！");
+    Console.WriteLine("HP打印机正在传真：" + contents);
+    return true;
+  }
+}
+```
+
+接着在`Program.cs`中实现多态
+
+```
+class Program
+{
+  static void Main(string[] args)
+  {
+    Print(new HPMultiPrinter());
+    Console.WriteLine("-----------------------------------------");
+    Print(new CanonPrinter());
+    Console.ReadLine();
+  }
+
+  //多态特性（接口作为方法的返回值、接口作为方法的参数）
+  static void Print(IMultiPrinter printer)
+  {
+      printer.Print("个人信息表");
+      printer.Copy("个人信息");
+      printer.Fax("身份证");
+  }
+}
+```
