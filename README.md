@@ -8,7 +8,7 @@
 
 - [反射](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/Reflect/demo.md)
 
-- [特性](https://github.com/Damon-Salvatore/CSharp-Learning)
+- [特性](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/Attribute/demo.md)
 
 - [委托、匿名方法和 Lambda 表达式](https://github.com/Damon-Salvatore/CSharp-Learning)
 
