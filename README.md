@@ -6,7 +6,7 @@
 
 - [泛型类与泛型方法](https://github.com/Damon-Salvatore/CSharp-Learning/tree/master/GenericClassAndMethod/demo.md)
 
-- [反射](https://github.com/Damon-Salvatore/CSharp-Learning)
+- [反射](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/Reflect/demo.md)
 
 - [特性](https://github.com/Damon-Salvatore/CSharp-Learning)
 
