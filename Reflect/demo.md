@@ -393,7 +393,7 @@ static void Main(string[] args)
   Console.WriteLine("\r\n-----------------------------------------------------");
   //通过方法名获取方法
   MethodInfo method = teacherType.GetMethod("SayHello");
-  method.Invoke(teacher, null);//**调用无参数方法使用null**
+  method.Invoke(teacher, null);// **调用无参数方法使用null**
 
   MethodInfo method1 = teacherType.GetMethod("Teach", new Type[] { typeof(int) });
   method1.Invoke(teacher, new object[] { 1 });//**调用1个参数的方法**
