@@ -355,7 +355,7 @@ static void Main(string[] args)
 ```
 
 ### 【8】泛型类中使用反射创建对象
-如果我们调用Type.GetType()来获取泛型类型的元数据描述，就必须使用包含`“反引号”（\`）`加上数字值得语法来表示类型支持的类型参数个数。
+如果我们调用Type.GetType()来获取泛型类型的元数据描述，就必须使用包含“反引号”（`）加上数字值得语法来表示类型支持的类型参数个数。
 ```
 System.Collections.Generic.List<T> -->System.Collections.Generic.List`1
 System.Collections.Generic.Dictionary<TKey,TValue> -->System.Collections.Generic.Dictionary`2
