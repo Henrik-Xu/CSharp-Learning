@@ -235,9 +235,9 @@ static void Main(string[] args)
 ```
 
 ### 【3】反射的基本使用,引入命名空间`using System.Reflection;`
-[Load](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.load?view=netframework-4.7.2)
-[LoadFrom](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfrom?view=netframework-4.7.2)
-[LoadFile](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfile?view=netframework-4.7.2)
+[Load](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.load?view=netframework-4.7.2) 
+[LoadFrom](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfrom?view=netframework-4.7.2) 
+[LoadFile](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfile?view=netframework-4.7.2) 
 
 ```
 static void Main(string[] args)
