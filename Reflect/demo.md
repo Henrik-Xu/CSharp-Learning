@@ -349,7 +349,7 @@ static void Main(string[] args)
   newPresident.SayHello();
 
   Type presidentType = Assembly.Load("Demo").GetType("Demo.President");
-  object president = Activator.CreateInstance(presidentType, true);// **true表示可以匹配私有构造方法（请断点调试观察）**
+  object president = Activator.CreateInstance(presidentType, true);//true表示可以匹配私有构造方法（请断点调试观察）
   Console.Read();
 }
 ```
@@ -393,30 +393,30 @@ static void Main(string[] args)
   Console.WriteLine("\r\n-----------------------------------------------------");
   //通过方法名获取方法
   MethodInfo method = teacherType.GetMethod("SayHello");
-  method.Invoke(teacher, null);// **调用无参数方法使用null**
+  method.Invoke(teacher, null);//调用无参数方法使用null
 
   MethodInfo method1 = teacherType.GetMethod("Teach", new Type[] { typeof(int) });
-  method1.Invoke(teacher, new object[] { 1 });//**调用1个参数的方法**
+  method1.Invoke(teacher, new object[] { 1 });//调用1个参数的方法
 
   MethodInfo method2 = teacherType.GetMethod("Teach", new Type[] { typeof(int), typeof(string) });
-  method2.Invoke(teacher, new object[] { 1, "第3章" });//**调用2个参数的方法**
+  method2.Invoke(teacher, new object[] { 1, "第3章" });//调用2个参数的方法
 
   MethodInfo method3 = teacherType.GetMethod("Teach", new Type[] { typeof(int), typeof(string), typeof(string) });
-  method3.Invoke(teacher, new object[] { 1, "第3章", ".Net反射技术" });//**调用3个参数的方法**
+  method3.Invoke(teacher, new object[] { 1, "第3章", ".Net反射技术" });//调用3个参数的方法
 
   Console.WriteLine("\r\n-----------------------------------------------------");
   MethodInfo method4 = teacherType.GetMethod("PrivateGetSalary", BindingFlags.Instance | BindingFlags.NonPublic);
-  method4.Invoke(teacher, null);//**调用私有方法**
+  method4.Invoke(teacher, null);//调用私有方法
 
   Console.WriteLine("\r\n-----------------------------------------------------");
   MethodInfo method5 = teacherType.GetMethod("Lecture", new Type[] { typeof(string) });
-  method5.Invoke(teacher, new object[] { ".Net反射的原理和应用" });//**调用静态方法**
-  method5.Invoke(null, new object[] { ".Net反射的原理和应用" });//**调用静态方法第一个实例可以为null,实例方法调用则不能省略**
+  method5.Invoke(teacher, new object[] { ".Net反射的原理和应用" });//调用静态方法**
+  method5.Invoke(null, new object[] { ".Net反射的原理和应用" });//调用静态方法第一个实例可以为null,实例方法调用则不能省略
 
   Console.WriteLine("\r\n-----------------------------------------------------");
   MethodInfo method6 = teacherType.GetMethod("TeachAdvancedCourse");
   MethodInfo genericMethod6 = method6.MakeGenericMethod(typeof(string), typeof(int));
-  genericMethod6.Invoke(teacher, new object[] { "8:00-10:00", 2 });//**调用泛型方法**
+  genericMethod6.Invoke(teacher, new object[] { "8:00-10:00", 2 });//调用泛型方法
 }
 ```
 
