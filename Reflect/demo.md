@@ -1,5 +1,7 @@
 ## 反射
 
+### 在.NET中，反射（reflection）是一个运行库类型发现的过程。使用反射服务，可以通过编程使用一个友好的对象模型得到与通过`ildasm.exe`显示的相同的元数据信息。
+
 新建一个控制台应用程序，取名`Demo`,在这里告诉读者项目的名字的原因是后面反射需要用到的命名空间和项目名称有关。
 
 先别着急，我们先来做一些准备工作。
@@ -13,7 +15,7 @@ public interface IQueryService
 }
 ```
 
-新建一个文件夹，名字叫做`School`，包含四个类  
+新建一个文件夹，名字叫做`School`，包含四个类，用于后面示例的操作类
 `Student.cs`:
 
 ```
@@ -50,14 +52,14 @@ public class Student : IQueryService
 
 ```
  /// <summary>
-/// 校长类：一个学校只有一个校长【单利模式】
+/// 校长类：一个学校只有一个校长【单例模式】
 /// </summary>
 public class President
 {
   private static President instance = null;
   private President()
   {
-    Console.WriteLine("单利模式中，President私有构造方法被调用！");
+    Console.WriteLine("单例模式中，President私有构造方法被调用！");
   }
   public static President GetPresident()
   {
@@ -208,7 +210,7 @@ public class Teacher
 
 打开`Program.cs`文件,注意，我们首先在 Main 函数结尾加一行`Console.Read()`代码，为了让我们更清楚看控制台的结果。
 
-程序依据需求的不同，耦合度不断的变化，开发者应该对这一些列变化深入掌握，才能更好的把握.Net 原理
+### 程序依据需求的不同，耦合度不断的变化，开发者应该对这一些列变化深入掌握，才能更好的把握.Net 原理
 
 ### 【1】普通对象的创建：性能最好，最容易理解，耦合度最高
 
@@ -233,6 +235,9 @@ static void Main(string[] args)
 ```
 
 ### 【3】反射的基本使用,引入命名空间`using System.Reflection;`
+[Load](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.load?view=netframework-4.7.2)、
+[LoadFrom](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfrom?view=netframework-4.7.2)、
+[LoadFile](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfile?view=netframework-4.7.2)
 
 ```
 static void Main(string[] args)
@@ -253,6 +258,8 @@ static void Main(string[] args)
 ```
 
 ### 【4】基于反射的对象创建
+
+[晚期绑定（late binding)](https://docs.microsoft.com/en-us/dotnet/api/system.activator.createinstance?view=netframework-4.7.2#System_Activator_CreateInstance_System_Type_)是一种创建一个给定类型的实例并在运行时调用其成员，而不需要在编译时知道它存在的一种技术。`System.Activator`类是.NET晚期绑定过程中的关键所在。
 
 ```
 static void Main(string[] args)
@@ -332,7 +339,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【7】单利模式中私有构造方法调用
+### 【7】单例模式中私有构造方法调用
 
 ```
 static void Main(string[] args)
@@ -342,13 +349,17 @@ static void Main(string[] args)
   newPresident.SayHello();
 
   Type presidentType = Assembly.Load("Demo").GetType("Demo.President");
-  object president = Activator.CreateInstance(presidentType, true);//true表示可以匹配私有构造方法（请断点调试观察）
+  object president = Activator.CreateInstance(presidentType, true);//**true表示可以匹配私有构造方法（请断点调试观察）**
   Console.Read();
 }
 ```
 
 ### 【8】泛型类中使用反射创建对象
-
+如果我们调用Type.GetType()来获取泛型类型的元数据描述，就必须使用包含`“反引号”（`）`加上数字值得语法来表示类型支持的类型参数个数。
+```
+System.Collections.Generic.List<T> -->System.Collections.Generic.List`1
+System.Collections.Generic.Dictionary<TKey,TValue> -->System.Collections.Generic.Dictionary`2
+```
 ```
 static void Main(string[] args)
 {
@@ -382,30 +393,30 @@ static void Main(string[] args)
   Console.WriteLine("\r\n-----------------------------------------------------");
   //通过方法名获取方法
   MethodInfo method = teacherType.GetMethod("SayHello");
-  method.Invoke(teacher, null);//调用无参数方法使用null
+  method.Invoke(teacher, null);//**调用无参数方法使用null**
 
   MethodInfo method1 = teacherType.GetMethod("Teach", new Type[] { typeof(int) });
-  method1.Invoke(teacher, new object[] { 1 });//调用1个参数的方法
+  method1.Invoke(teacher, new object[] { 1 });//**调用1个参数的方法**
 
   MethodInfo method2 = teacherType.GetMethod("Teach", new Type[] { typeof(int), typeof(string) });
-  method2.Invoke(teacher, new object[] { 1, "第3章" });//调用2个参数的方法
+  method2.Invoke(teacher, new object[] { 1, "第3章" });//**调用2个参数的方法**
 
   MethodInfo method3 = teacherType.GetMethod("Teach", new Type[] { typeof(int), typeof(string), typeof(string) });
-  method3.Invoke(teacher, new object[] { 1, "第3章", ".Net反射技术" });//调用3个参数的方法
+  method3.Invoke(teacher, new object[] { 1, "第3章", ".Net反射技术" });//**调用3个参数的方法**
 
   Console.WriteLine("\r\n-----------------------------------------------------");
   MethodInfo method4 = teacherType.GetMethod("PrivateGetSalary", BindingFlags.Instance | BindingFlags.NonPublic);
-  method4.Invoke(teacher, null);//调用私有方法
+  method4.Invoke(teacher, null);//**调用私有方法**
 
   Console.WriteLine("\r\n-----------------------------------------------------");
   MethodInfo method5 = teacherType.GetMethod("Lecture", new Type[] { typeof(string) });
-  method5.Invoke(teacher, new object[] { ".Net反射的原理和应用" });//调用静态方法
-  method5.Invoke(null, new object[] { ".Net反射的原理和应用" });//调用静态方法第一个实例可以为null,实例方法调用则不能省略
+  method5.Invoke(teacher, new object[] { ".Net反射的原理和应用" });//**调用静态方法**
+  method5.Invoke(null, new object[] { ".Net反射的原理和应用" });//**调用静态方法第一个实例可以为null,实例方法调用则不能省略**
 
   Console.WriteLine("\r\n-----------------------------------------------------");
   MethodInfo method6 = teacherType.GetMethod("TeachAdvancedCourse");
   MethodInfo genericMethod6 = method6.MakeGenericMethod(typeof(string), typeof(int));
-  genericMethod6.Invoke(teacher, new object[] { "8:00-10:00", 2 });
+  genericMethod6.Invoke(teacher, new object[] { "8:00-10:00", 2 });//**调用泛型方法**
 }
 ```
 
@@ -433,12 +444,12 @@ static void Main(string[] args)
   }
   Console.WriteLine("\r\n--------------------------------------------------");
 
-  //给属性赋值
+  //**给属性赋值**
   PropertyInfo property = teacherType.GetProperty("Department");
   property.SetValue(teacher, ".Net教学组");
   Console.WriteLine(property.GetValue(teacher));
 
-  //给字段赋值
+  //**给字段赋值**
   FieldInfo field = teacherType.GetField("Company");
   field.SetValue(teacher, "腾讯课堂");
   Console.WriteLine(field.GetValue(teacher));
