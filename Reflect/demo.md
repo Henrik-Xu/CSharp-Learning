@@ -1,6 +1,6 @@
 ## 反射
 
-### 在.NET中，反射（reflection）是一个运行库类型发现的过程。使用反射服务，可以通过编程使用一个友好的对象模型得到与通过`ildasm.exe`显示的相同的元数据信息。
+### 在.NET 中，反射（reflection）是一个运行库类型发现的过程。使用反射服务，可以通过编程使用一个友好的对象模型得到与通过`ildasm.exe`显示的相同的元数据信息。
 
 新建一个控制台应用程序，取名`Demo`,在这里告诉读者项目的名字的原因是后面反射需要用到的命名空间和项目名称有关。
 
@@ -235,9 +235,10 @@ static void Main(string[] args)
 ```
 
 ### 【3】反射的基本使用,引入命名空间`using System.Reflection;`
-[Load](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.load?view=netframework-4.7.2) 
-[LoadFrom](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfrom?view=netframework-4.7.2) 
-[LoadFile](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfile?view=netframework-4.7.2) 
+
+[Load](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.load?view=netframework-4.7.2)
+[LoadFrom](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfrom?view=netframework-4.7.2)
+[LoadFile](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfile?view=netframework-4.7.2)
 
 ```
 static void Main(string[] args)
@@ -259,7 +260,7 @@ static void Main(string[] args)
 
 ### 【4】基于反射的对象创建
 
-晚期绑定（late binding)是一种创建一个给定类型的实例并在运行时调用其成员，而不需要在编译时知道它存在的一种技术。[System.Activator](https://docs.microsoft.com/en-us/dotnet/api/system.activator.createinstance?view=netframework-4.7.2#System_Activator_CreateInstance_System_Type_)类是.NET晚期绑定过程中的关键所在。
+晚期绑定（late binding)是一种创建一个给定类型的实例并在运行时调用其成员，而不需要在编译时知道它存在的一种技术。[System.Activator](https://docs.microsoft.com/en-us/dotnet/api/system.activator.createinstance?view=netframework-4.7.2#System_Activator_CreateInstance_System_Type_)类是.NET 晚期绑定过程中的关键所在。
 
 ```
 static void Main(string[] args)
@@ -355,11 +356,14 @@ static void Main(string[] args)
 ```
 
 ### 【8】泛型类中使用反射创建对象
-如果我们调用Type.GetType()来获取泛型类型的元数据描述，就必须使用包含“反引号”（`）加上数字值得语法来表示类型支持的类型参数个数。
+
+如果我们调用 Type.GetType()来获取泛型类型的元数据描述，就必须使用包含“反引号”（`）加上数字值得语法来表示类型支持的类型参数个数。
+
 ```
 System.Collections.Generic.List<T> -->System.Collections.Generic.List`1
 System.Collections.Generic.Dictionary<TKey,TValue> -->System.Collections.Generic.Dictionary`2
 ```
+
 ```
 static void Main(string[] args)
 {
