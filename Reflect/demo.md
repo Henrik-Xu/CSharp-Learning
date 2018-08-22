@@ -349,13 +349,13 @@ static void Main(string[] args)
   newPresident.SayHello();
 
   Type presidentType = Assembly.Load("Demo").GetType("Demo.President");
-  object president = Activator.CreateInstance(presidentType, true);//**true表示可以匹配私有构造方法（请断点调试观察）**
+  object president = Activator.CreateInstance(presidentType, true);// **true表示可以匹配私有构造方法（请断点调试观察）**
   Console.Read();
 }
 ```
 
 ### 【8】泛型类中使用反射创建对象
-如果我们调用Type.GetType()来获取泛型类型的元数据描述，就必须使用包含`“反引号”（`）`加上数字值得语法来表示类型支持的类型参数个数。
+如果我们调用Type.GetType()来获取泛型类型的元数据描述，就必须使用包含`“反引号”（\`）`加上数字值得语法来表示类型支持的类型参数个数。
 ```
 System.Collections.Generic.List<T> -->System.Collections.Generic.List`1
 System.Collections.Generic.Dictionary<TKey,TValue> -->System.Collections.Generic.Dictionary`2
