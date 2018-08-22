@@ -259,7 +259,7 @@ static void Main(string[] args)
 
 ### 【4】基于反射的对象创建
 
-[晚期绑定（late binding)](https://docs.microsoft.com/en-us/dotnet/api/system.activator.createinstance?view=netframework-4.7.2#System_Activator_CreateInstance_System_Type_)是一种创建一个给定类型的实例并在运行时调用其成员，而不需要在编译时知道它存在的一种技术。`System.Activator`类是.NET晚期绑定过程中的关键所在。
+晚期绑定（late binding)是一种创建一个给定类型的实例并在运行时调用其成员，而不需要在编译时知道它存在的一种技术。[System.Activator](https://docs.microsoft.com/en-us/dotnet/api/system.activator.createinstance?view=netframework-4.7.2#System_Activator_CreateInstance_System_Type_)类是.NET晚期绑定过程中的关键所在。
 
 ```
 static void Main(string[] args)
