@@ -1,6 +1,6 @@
 ## 委托、匿名方法和 Lambda 表达式
 
-### 新建一个控制台解决方案，取名`LinqAndDelegateDemo`
+#### 新建一个控制台解决方案，取名`LinqAndDelegateDemo`
 
 新建一个`Person`实体类
 
@@ -90,7 +90,7 @@ public static class CustomExtendMethod
 
 最后我们回到`Program.cs`文件中，编写一些`demo`,注意，我们已经在最后一行加了`Console.Read();`,以便我们观看控制台结果
 
-####### 【1】使用 var 推断类型
+###### 【1】使用 var 推断类型
 
 ```
 static void Main(string[] args)
@@ -122,7 +122,7 @@ static void Main(string[] args)
 }
 ```
 
-####### 【2】委托基础
+###### 【2】委托基础
 
 首先定义和一些方法
 
@@ -185,7 +185,7 @@ static void Main(string[] args)
 }
 ```
 
-####### 【3】匿名方法
+###### 【3】匿名方法
 
 ```
 static void Main(string[] args)
@@ -201,7 +201,7 @@ static void Main(string[] args)
 }
 ```
 
-####### 【4】Lambda 表达式
+###### 【4】Lambda 表达式
 
 ```
 static void Main(string[] args)
@@ -237,7 +237,7 @@ static void Main(string[] args)
 }
 ```
 
-####### 【5】自定义泛型委托和系统委托 Action/Func
+###### 【5】自定义泛型委托和系统委托 Action/Func
 
 首先，定义和委托具有相同函数签名（方法参数、方法返回值）的函数
 
@@ -291,7 +291,7 @@ static void Main(string[] args)
 }
 ```
 
-####### 【6】协变和逆变
+###### 【6】协变和逆变
 
 ```
 static void Main(string[] args)
@@ -319,7 +319,7 @@ static void Main(string[] args)
 }
 ```
 
-####### 【7】扩展方法
+###### 【7】扩展方法
 
 ```
 static void Main(string[] args)
