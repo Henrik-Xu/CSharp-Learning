@@ -127,6 +127,11 @@ static void Main(string[] args)
 首先定义和一些方法
 
 ```
+//2.1 声明委托
+public delegate void CalculatorDelegate(int a, int b);
+
+public delegate int MathDelegate(int a);
+
 // 2.2 根据委托定义的具体的方法
 static void Add(int a, int b)
 {
@@ -237,6 +242,11 @@ static void Main(string[] args)
 首先，定义和委托具有相同函数签名（方法参数、方法返回值）的函数
 
 ```
+//5.1 声明泛型委托
+public delegate void MyGenericDelegate1<T1, T2>(T1 a, T2 b);
+public delegate T1 MyGenericDelegate2<T1, T2>(T1 a, T2 b);
+
+//5.2 定义方法
 public static void Test1(int a, int b)
 {
   int result = a + b;
