@@ -1,8 +1,6 @@
 ## 异步委托
 
-新建一个 WinForm 桌面应用程序，添加两个按钮`btnTest1`和`btnTest2`，`Text`分别为`同步执行`和`异步执行`, 然后添加两个标签`lblInfo1`和`lblInfo2`，
-
-分别对应`任务【1】计算结果：`和`任务【2】计算结果：`标签的显示内容,桌面布局如下所示：
+新建一个 WinForm 桌面应用程序，桌面布局如下所示：
 
 ![](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/imgs/1.png)
 
@@ -54,6 +52,5 @@ private void btnTest2_Click(object sender, EventArgs e)
   //委托类型的EndInvoke（） : 借助于IAsyncResult接口对象，任务进行中，不断地的观察异步调用是否结束
   //该方法知道异步调用的方法全部参数，所以异步调用完毕后，取出异步调用结果作为返回值
   this.lblInfo1.Text = res.ToString();
-
 }
 ```
