@@ -2,7 +2,7 @@
 
 新建一个 WinForm 桌面应用程序，桌面布局如下所示：
 
-![](https://github.com/Damon-Salvatore/CSharp-Learning/tree/master/AsynProgramming/imgs)
+![](https://github.com/Damon-Salvatore/CSharp-Learning/tree/master/AsynProgramming/imgs/2.png)
 
 #### 【1】声明委托
 
@@ -54,7 +54,7 @@ private void btnExec_Click(object sender, EventArgs e)
 }
 ```
 
-#### 得出结论
+#### 【6】得出结论
 
 异步编程需要知道的一些内容：
 
