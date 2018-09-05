@@ -2,7 +2,7 @@
 
 新建一个 WinForm 桌面应用程序，桌面布局如下所示：
 
-![](https://github.com/Damon-Salvatore/CSharp-Learning/tree/master/AsynProgramming/imgs/2.png)
+![](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/imgs/2.png)
 
 #### 【1】声明委托
 
