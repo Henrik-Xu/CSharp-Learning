@@ -1,6 +1,6 @@
 ## 异步委托
 
-新建一个 WinForm 桌面应用程序，桌面布局如下所示：
+新建一个 WinForm 桌面应用程序，桌面布局如下所示,两个按钮分别取名`btnTest1`和`btnTest2`
 
 ![](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/imgs/1.png)
 
