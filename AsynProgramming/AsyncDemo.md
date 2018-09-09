@@ -31,11 +31,11 @@ private void btnTest1_Click(object sender, EventArgs e)
 在第二个`btnTest2`的点击事件中，我们使用异步委托来实现异步编程
 
 ```
-//BeginInvoke（<输入和输出变量>,AysncCallBak,object asyncState)方法：异步调用的核心
-//第一个参数10，表示委托对应的方法实参。
-//第二个参数AysncCallBak，回调函数，表示异步调用结束的时候自动调用的函数
-//第三个参数，asyncState，用来传递异步相关结果，也就是向回调函数提供相关的数据
-//返回值： IAsyncResult-->异步操作的状态接口。封装了异步中执行中的参数。
+// BeginInvoke（<输入和输出变量>,AysncCallBak,object asyncState)方法：异步调用的核心
+// 第一个参数10，表示委托对应的方法实参。
+// 第二个参数AysncCallBak，回调函数，表示异步调用结束的时候自动调用的函数
+// 第三个参数，asyncState，用来传递异步相关结果，也就是向回调函数提供相关的数据
+// 返回值： IAsyncResult-->异步操作的状态接口。封装了异步中执行中的参数。
 private void btnTest2_Click(object sender, EventArgs e)
 {
   Func<int, int> myCal2 = ExecuteTask1;

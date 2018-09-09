@@ -38,9 +38,9 @@ Thread thread1 = new Thread(() =>
 1.`lock`关键字
 
 ```
-//lock (this) is a problem if the instance can be accessed publicly.
-//lock (typeof (MyType)) is a problem if MyType is publicly accessible.
-//lock(“myLock”) is a problem since any other code in the process using the same string, will share the same lock.
+// lock (this) is a problem if the instance can be accessed publicly.
+// lock (typeof (MyType)) is a problem if MyType is publicly accessible.
+// lock(“myLock”) is a problem since any other code in the process using the same string, will share the same lock.
 
 private readonly object threadLock = new object();//最佳实践
 ```

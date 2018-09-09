@@ -1,6 +1,6 @@
 ## Task 的基本使用 2
 
-1.使用 Task 各种阻塞方法
+1.使用`Task`各种阻塞方法
 
 ```
 static void Main(string[] args)
@@ -11,6 +11,7 @@ static void Main(string[] args)
     Console.WriteLine("子线程Id={0}", Thread.CurrentThread.ManagedThreadId);
   });
   task1.Start();
+
   Task task2 = new Task(() =>
   {
     Thread.Sleep(3000);
@@ -18,14 +19,14 @@ static void Main(string[] args)
   });
   task2.Start();
 
-  //第一种：等待所有的任务都完成
+  // 第一种：等待所有的任务都完成
   Task.WaitAll(task1, task2);
 
-  //var taskArray = new Task[2] { task1, task2 };
-  //Task.WaitAll(taskArray);
+  // var taskArray = new Task[2] { task1, task2 };
+  // Task.WaitAll(taskArray);
 
-  //var taskArray = new Task[2] { task1, task2 };
-  //Task.WaitAny(taskArray);
+  // var taskArray = new Task[2] { task1, task2 };
+  // Task.WaitAny(taskArray);
 
   Console.WriteLine("This is Main Thread!");
 
@@ -33,7 +34,7 @@ static void Main(string[] args)
 }
 ```
 
-2.Task 的延续 1：WhenAll
+2.`Task`的延续 1：`WhenAll`
 
 ```
 static void Main(string[] args)
@@ -44,6 +45,7 @@ static void Main(string[] args)
     Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
   });
   task1.Start();
+
   Task task2 = new Task(() =>
   {
     Thread.Sleep(2000);
@@ -63,7 +65,7 @@ static void Main(string[] args)
 }
 ```
 
-3.Task 的延续 2：WhenAny
+3.`Task`的延续 2：`WhenAny`
 
 ```
 static void Main(string[] args)
@@ -74,6 +76,7 @@ static void Main(string[] args)
     Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
   });
   task1.Start();
+
   Task task2 = new Task(() =>
   {
     Thread.Sleep(3000);
@@ -93,7 +96,7 @@ static void Main(string[] args)
 }
 ```
 
-4.Task 的延续 3：使用工厂完成：ContinueWhenAll
+4.`Task`的延续,使用工厂完成：`ContinueWhenAll`
 
 ```
 static void Main(string[] args)
@@ -104,6 +107,7 @@ static void Main(string[] args)
     Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
   });
   task1.Start();
+
   Task task2 = new Task(() =>
   {
     Thread.Sleep(3000);
