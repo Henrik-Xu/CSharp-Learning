@@ -1,6 +1,4 @@
-## Task 的基本使用 3
-
-`Task`常见枚举`TaskCreationOptions`（父子任务运行和拒绝附加，长时间运行的任务...）
+## Task 的基本使用 3 : `Task`常见枚举`TaskCreationOptions`（父子任务运行和拒绝附加，长时间运行的任务...）
 
 ```
 static void Main(string[] args)

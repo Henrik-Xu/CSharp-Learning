@@ -1,4 +1,4 @@
-### Task 的基本使用【5】：Task 中的取消功能：使用的是 CacellationTokenSoure 解决多任务中协作取消和超时取消方法
+### Task 的基本使用 5 ：Task 中的取消功能：使用的是 CacellationTokenSoure 解决多任务中协作取消和超时取消方法
 
 1.简单的线程的取消（存在 bug）
 
@@ -24,7 +24,7 @@ static void Main(string[] args)
 }
 ```
 
-2.Task 任务的取消与判断：CancellationTokenSource 实现和前面 isStop 判断相同的功能，去处理"取消任务” 但是比前面优化很多....
+2.`Task`任务的取消与判断：`CancellationTokenSource` 实现和前面`isStop`判断相同的功能，去处理"取消任务” 但是比前面优化很多....
 
 ```
 static void Main(string[] args)
@@ -48,7 +48,7 @@ static void Main(string[] args)
 }
 ```
 
-3.Task 任务取消的时候，我们希望能够有一些其他的清理工作要执行，也就是这个取消的动作会触发一个任务，比如更新订单队列，或数据库等
+3.`Task`任务取消的时候，我们希望能够有一些其他的清理工作要执行，也就是这个取消的动作会触发一个任务，比如更新订单队列，或数据库等
 
 ```
 static void Main(string[] args)
@@ -79,7 +79,7 @@ static void Main(string[] args)
 }
 ```
 
-4.Task 任务延时取消：比如我们请求远程的接口，如果在指定时间没有返回数据，我们可以做一个时间限制，超时可以取消任务
+4.`Task`任务延时取消：比如我们请求远程的接口，如果在指定时间没有返回数据，我们可以做一个时间限制，超时可以取消任务
 
 ```
 static void Main(string[] args)

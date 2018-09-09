@@ -1,4 +1,4 @@
-## Task 的基本使用【4】：Task 常见枚举 （延续、完成、取消、异常）TaskContiuationOptions
+## Task 的基本使用 4 : Task 常见枚举 （延续、完成、取消、异常）TaskContinuationOptions
 
 1.`ContinueWith`的使用
 
@@ -46,7 +46,7 @@ static void Main(string[] args)
   Task task2 = task1.ContinueWith((task) =>
   {
       Console.WriteLine("Child（2）Time={0}  Id={1}", DateTime.Now.ToLongTimeString(), Thread.CurrentThread.ManagedThreadId);
-  }, cts.Token);//《2》cts.Token：获取任务取消信号源
+  }, cts.Token);//【2】cts.Token：获取任务取消信号源
 
   // 任务3
   Task task3 = task2.ContinueWith((task) =>

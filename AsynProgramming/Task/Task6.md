@@ -42,7 +42,7 @@ static void Main(string[] args)
 }
 ```
 
-3.Task.WhenAll<TResult>/WhenAny
+3.`Task.WhenAll<TResult>/WhenAny`
 
 ```
 static void Main(string[] args)

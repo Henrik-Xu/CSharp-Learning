@@ -1,6 +1,6 @@
 ## TPL(Task Parallel Library)
 
-### 一:并行计算：Parallel 各种使用方法
+### 一:并行计算：`Parallel`各种使用方法
 
 1.并行计算的基础使用
 
@@ -22,7 +22,7 @@ static void Main(string[] args)
 }
 ```
 
-2.重载方法 1：中断的出现的 bug
+2.重载方法 1：中断的出现的`bug`
 
 ```
 static void Main(string[] args)
@@ -46,7 +46,7 @@ static void Main(string[] args)
 3.重载方法 2：可以指定参与线程的个数：
 
 ```
-//public static ParallelLoopResult For(int fromInclusive, int toExclusive, ParallelOptions parallelOptions, Action<int> body);
+// public static ParallelLoopResult For(int fromInclusive, int toExclusive, ParallelOptions parallelOptions, Action<int> body);
 static void Main(string[] args)
 {
   Console.WriteLine("-------------并行执行-----------");
@@ -65,7 +65,7 @@ static void Main(string[] args)
 }
 ```
 
-4.Parallel.For：使用数组可以做累加运算
+4.`Parallel.For`：使用数组可以做累加运算
 
 ```
 static void Main(string[] args)
@@ -83,7 +83,7 @@ static void Main(string[] args)
 }
 ```
 
-5.Parallel.ForEach：可以遍历字典
+5.`Parallel.ForEach`：可以遍历字典
 
 ```
 static void Main(string[] args)
@@ -107,7 +107,7 @@ static void Main(string[] args)
 }
 ```
 
-6.Parallel.Invoke 并行计算方法
+6.`Parallel.Invoke`并行计算方法
 
 ```
 static void Main(string[] args)
@@ -126,11 +126,11 @@ static void Main(string[] args)
 }
 ```
 
-### 二、PLinq
+### 二、`PLINQ`
 
-为什么使用 Plinq？也就是在 LINQ 查询中，为了提高效率，可以使用并行版本
+为什么使用 `PLINQ`？也就是在`LINQ`查询中，为了提高效率，可以使用并行版本
 
-1.普通 LINQ 查询
+1.普通 `LINQ` 查询
 
 ```
 static void Main(string[] args)
@@ -150,7 +150,7 @@ static void Main(string[] args)
 }
 ```
 
-2.PLinq 查询操作（并行）
+2.`PLINQ`查询操作（并行）
 
 ```
 static void Main(string[] args)
@@ -170,7 +170,7 @@ static void Main(string[] args)
 }
 ```
 
-3.扩展方法:AsOrdered() 就是按照原始顺序排序。AsOrdered() 不等于我们串行编程中的 OrderBy,AsSequential()就是把 PLINQ 转成 LINQ
+3.扩展方法:`AsOrdered()`就是按照原始顺序排序。`AsOrdered()`不等于我们串行编程中的`OrderBy,AsSequential()`就是把`PLINQ`转成`LINQ`
 
 ```
 static void Main(string[] args)
