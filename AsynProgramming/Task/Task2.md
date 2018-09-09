@@ -96,7 +96,7 @@ static void Main(string[] args)
 }
 ```
 
-4.`Task`的延续,使用工厂完成：`ContinueWhenAll`
+4.`Task`的延续,3:使用工厂完成：`ContinueWhenAll`
 
 ```
 static void Main(string[] args)
@@ -115,7 +115,7 @@ static void Main(string[] args)
   });
   task2.Start();
 
-  //Factory里面的：public Task ContinueWhenAll(Task[] tasks, Action<Task[]> continuationAction);
+  // Factory里面的：public Task ContinueWhenAll(Task[] tasks, Action<Task[]> continuationAction);
   // 摘要:
   //     创建一个延续任务，该任务在一组指定的任务完成后开始。
   //

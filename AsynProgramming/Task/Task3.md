@@ -1,10 +1,13 @@
-## Task 的基本使用 3：Task 常见枚举 TaskCreationOptions（父子任务运行和拒绝附加，长时间运行的任务...）
+## Task 的基本使用 3
+
+`Task`常见枚举`TaskCreationOptions`（父子任务运行和拒绝附加，长时间运行的任务...）
 
 ```
 static void Main(string[] args)
 {
   // 摘要:
-  //     指定将任务附加到任务层次结构中的某个父级。默认情况下，子任务（即由外部任务创建的内部任务）将独立于其父任务执行。可以使用 System.Threading.Tasks.TaskContinuationOptions.AttachedToParent
+  //     指定将任务附加到任务层次结构中的某个父级。默认情况下，子任务（即由外部任务创建的内部任务）将独立于其父任务执行。可以使用
+  //     System.Threading.Tasks.TaskContinuationOptions.AttachedToParent
   //     选项以便将父任务和子任务同步。请注意，如果使用 System.Threading.Tasks.TaskCreationOptions.DenyChildAttach
   //     选项配置父任务，则子任务中的 System.Threading.Tasks.TaskCreationOptions.AttachedToParent 选项不起作用，并且子任务将作为分离的子任务执行。有关详细信息，请参阅附加和分离的子任务。
 
@@ -17,6 +20,7 @@ static void Main(string[] args)
       Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
     }, TaskCreationOptions.AttachedToParent);
     task1.Start();
+
     //任务2
     Task task2 = new Task(() =>
     {
