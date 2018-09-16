@@ -12,15 +12,15 @@
 
 【2】`Rest` 架构的主要原则：
 
--- 事务为对象，资源有统一，形式有多样（`xml`、`json` 等）
+- 事务为对象，资源有统一，形式有多样（`xml`、`json` 等）
 
--- 每个资源都有一个唯一的资源标识符。
+- 每个资源都有一个唯一的资源标识符。
 
--- 同一个资源具有多种表现形式(`xml`,`json` 等)。
+- 同一个资源具有多种表现形式(`xml`,`json` 等)。
 
--- 对资源的各种操作不会改变资源标识符。
+- 对资源的各种操作不会改变资源标识符。
 
--- 所有的操作都是无状态的。
+- 所有的操作都是无状态的。
 
 【3】什么是 `RESTful`？
 
@@ -30,22 +30,22 @@
 
 在 `Restful` 之前我们写一个 `web` 请求，格式通常是这样的：
 
--- "/product/query/1" 根据用户 id 查询商品
+- "/product/query/1" 根据用户 id 查询商品
 
--- "/product/Add" 新增商品
+- "/product/Add" 新增商品
 
--- "/product/update" 修改商品
+- "/product/update" 修改商品
 
--- "/product/delete" 删除商品
+- "/product/delete" 删除商品
 
 `Restful` 用法：
 
--- "/product/1" GET 根据用户 id 查询商品
+- "/product/1" GET 根据用户 id 查询商品
 
--- "/product/" POST 新增商品
+- "/product/" POST 新增商品
 
--- "/product/" PUT 修改商品
+- "/product/" PUT 修改商品
 
--- "/product/" DELETE 删除商品
+- "/product/" DELETE 删除商品
 
 `restful` 风格其实就是根据请求的类型（`get`、`post`、`put`、`delete`）来匹配对应的方法。
