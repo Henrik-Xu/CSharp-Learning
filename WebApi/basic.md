@@ -26,26 +26,26 @@
 
 符合 `REST` 原则的架构方式即可称为 `RESTful`。
 
-【4】为什么会出现 restful？
+【4】为什么会出现 `restful`？
 
-在 Restful 之前我们写一个 web 请求，格式通常是这样的：
+在 `Restful` 之前我们写一个 `web` 请求，格式通常是这样的：
 
--- http://192.168.1.100/product/query/1 根据用户 id 查询商品
+-- "/product/query/1" 根据用户 id 查询商品
 
--- http://192.168.1.100/product/Add 新增商品
+-- "/product/Add" 新增商品
 
--- http://192.168.1.100/product/update 修改商品
+-- "/product/update" 修改商品
 
--- http://192.168.1.100/product/delete 删除商品
+-- "/product/delete" 删除商品
 
-Restful 用法：
+`Restful` 用法：
 
--- http://192.168.1.100/product/1 GET 根据用户 id 查询商品
+-- "/product/1" GET 根据用户 id 查询商品
 
--- http://192.168.1.100/product/ POST 新增商品
+-- "/product/" POST 新增商品
 
--- http://192.168.1.100/product/ PUT 修改商品
+-- "/product/" PUT 修改商品
 
--- http://192.168.1.100/product/ DELETE 删除商品
+-- "/product/" DELETE 删除商品
 
-restful 风格其实就是根据请求的类型（get、post、put、delete）来匹配对应的方法。
+`restful` 风格其实就是根据请求的类型（`get`、`post`、`put`、`delete`）来匹配对应的方法。
