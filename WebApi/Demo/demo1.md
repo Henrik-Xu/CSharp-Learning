@@ -2,7 +2,7 @@
 
 1.新建一个`ASP.NET Web`应用程序，取名`WebApiDemo1`,选择如下：
 
-![](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WebApi/imgs/1.png)
+![](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WebApi/Demo/imgs/1.png)
 
 2.新建一个`MVC`的控制器， 取名`HomeController`,在`Index.cshtml`中编写我们的测试用例，注意，需要自己添加`JQuery`
 
@@ -95,10 +95,7 @@ b.`Post` 请求的规范
   无参数的 `Post` 请求，和 `Get` 方式请求相同。只不过在客户端`$.get` 和`$.post` 区别。同时只需要添加`[httpPost]`标记特性即可。
 
 - 有参数
-
-  一个参数的 `POST` 请求,和 `Get` 方式不一样，动作方法参数上面必须添加`[FromBody]`标记，否则访问不到！同时 `WebAPI` 请求传递的参数，
-
-也有特定的格式。而这种格式并不是我们常见的 `key-value` 格式。`WebAPI`模型绑定器寻找的时候，并不是按照 `key`去查找。而且空字符串。
+  一个参数的 `POST` 请求,和 `Get` 方式不一样，动作方法参数上面必须添加`[FromBody]`标记，否则访问不到！同时 `WebAPI` 请求传递的参数，也有特定的格式。而这种格式并不是我们常见的 `key-value` 格式。`WebAPI`模型绑定器寻找的时候，并不是按照 `key`去查找。而是空字符串。
 
 ```
 /// <summary>
