@@ -13,7 +13,7 @@ public class Student
 }
 ```
 
-新建一个视图,取名 'GetRequest.cshtml',提供界面访问`api`数据的按钮，在`body`中写下如下布局：
+新建一个视图,取名 `GetRequest.cshtml`,提供界面访问`api`数据的按钮，在`body`中写下如下布局：
 
 ```
 <div>
@@ -37,7 +37,7 @@ public class Student
   }
 ```
 
-####### Get：无参数的请求
+###### Get：无参数的请求
 
 `StudentController`代码：
 
@@ -65,7 +65,7 @@ public class Student
   });
 ```
 
-####### Get：2 个参数的请求-->基础数据类型
+###### Get：2 个参数的请求-->基础数据类型
 
 `StudentController`代码：
 
@@ -96,7 +96,7 @@ public class Student
   });
 ```
 
-####### Get：实体作为参数
+###### Get：实体作为参数
 
 `StudentController`代码：
 
@@ -136,7 +136,7 @@ public class Student
   });
 ```
 
-####### Get：传递 json 字符串（包含多个参数）
+###### Get：传递 json 字符串（包含多个参数）
 
 `StudentController`代码：
 
@@ -173,7 +173,7 @@ public string GetStudentByJson(string jsonStudent)
 });
 ```
 
-####### Get：没有写 HttpGet 特性-1
+###### Get：没有写 HttpGet 特性-1
 
 `StudentController`代码：
 
@@ -201,7 +201,7 @@ public string GetStudentByJson(string jsonStudent)
   });
 ```
 
-####### Get：没有写 HttpGet 特性-2
+###### Get：没有写 HttpGet 特性-2
 
 `StudentController`代码：
 
@@ -231,7 +231,7 @@ public string GetStudentByJson(string jsonStudent)
 });
 ```
 
-####### 返回一个对象集合
+###### 返回一个对象集合
 
 `StudentController`代码：
 
