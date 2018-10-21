@@ -15,3 +15,5 @@
 - [异步编程和多线程基础](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/demo.md)
 
 - [WebAPI](https://github.com/Damon-Salvatore/CSharp-Learning/tree/master/WebApi)
+
+- [.NetCore](https://github.com/Damon-Salvatore/CSharp-Learning/tree/master/NetCore)
