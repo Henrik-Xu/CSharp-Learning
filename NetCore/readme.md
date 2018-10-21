@@ -1,1 +1,1 @@
-- [.NetCore 新型配置系统详解](https://github.com/Damon-Salvatore/CSharp-Learning/tree/master/WebApi)
+- [.NetCore 新型配置系统详解](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/NetCore/Demo/1.demo.md)
