@@ -1,24 +1,25 @@
-## New 关键字的使用
+### New 关键字的使用
 
-### `Animal.cs`的代码如下
+#### `Animal.cs`
 
-```
+```cs
 abstract class Animal
 {
-  #region
   //父类构造函数
   public Animal() { }
+
   public Animal(string name, string color, string kind)
   {
     this.Color = color;
     this.Name = name;
     this.Kind = kind;
   }
+
   public string Name { get; set; }//名字
   public string Color { get; set; }//颜色
   public string Kind { get; set; }//种类
   public string Favorite { get; set; }//喜好
-  #endregion
+
   //自我介绍
   public void Introduce()
   {
@@ -26,6 +27,7 @@ abstract class Animal
         Kind, Name, Color, Favorite);
     Console.WriteLine(info);
   }
+
   //虚方法
   public virtual void Have()
   {
@@ -34,9 +36,9 @@ abstract class Animal
 }
 ```
 
-### `Cat.cs`的代码如下
+#### `Cat.cs`
 
-```
+```cs
 class Cat : Animal
 {
   public Cat(string name, string color, string kind, string favorite)
@@ -44,12 +46,14 @@ class Cat : Animal
   {
     this.Favorite = favorite;
   }
+
   //跳舞
   public void Dancing()
   {
     base.Introduce();
     Console.WriteLine("下面我给大家表演《小猫迪斯科》，请大家鼓掌啊：>");
   }
+
   public override bool Equals(object obj)
   {
     Cat objCat = obj as Cat;
@@ -63,30 +67,32 @@ class Cat : Animal
 }
 ```
 
-### `Dog.cs`的代码如下
+#### `Dog.cs`
 
-```
+```cs
 class Dog : Animal
 {
-  #region
   public Dog(string name, string color, string kind, string favorite)
       : base(name, color, kind)
   {
     this.Favorite = favorite;
   }
+
   //赛跑
   public void Race()
   {
     base.Introduce();
     Console.WriteLine("下面我给大家表演《狗狗精彩百米跨栏》，请大家鼓掌啊：>");
   }
+
   //吃饭
   public override void Have()
   {
     base.Have();
     Console.WriteLine("我们要吃香喷喷的排骨啦！");
   }
-  #endregion
+
+
   public new void Introduce()
   {
     string info = string.Format("Hi! I am {0}，My Name is {1}！",
@@ -96,9 +102,9 @@ class Dog : Animal
 }
 ```
 
-### `Program.cs`的代码如下
+#### `Program.cs`
 
-```
+```cs
 class Program
 {
   static void Main(string[] args)

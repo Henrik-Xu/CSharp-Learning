@@ -1,23 +1,25 @@
-## base 关键字的使用（base 关键字用来调用父类的构造方法）
+### base 关键字的使用（base 关键字用来调用父类的构造方法）
 
-###`Animal.cs`的代码如下
+#### `Animal.cs`
 
-```
+```cs
 class Animal
 {
   //父类构造函数
   public Animal() { }
+
   public Animal(string name, string color, string kind)
   {
     this.Color = color;
     this.Name = name;
     this.Kind = kind;
   }
-  #region
+
   public string Name { get; set; }//名字
   public string Color { get; set; }//颜色
   public string Kind { get; set; }//种类
   public string Favorite { get; set; }//喜好
+
   //自我介绍
   public void Introduce()
   {
@@ -25,13 +27,12 @@ class Animal
         Kind, Name, Color, Favorite);
     Console.WriteLine(info);
   }
-  #endregion
 }
 ```
 
-### `Cat.cs`的代码如下
+#### `Cat.cs`
 
-```
+```cs
 class Cat : Animal
 {
   public Cat(string name, string color, string kind, string favorite)
@@ -39,6 +40,7 @@ class Cat : Animal
   {
     this.Favorite = favorite;
   }
+
   //跳舞
   public void Dancing()
   {
@@ -48,9 +50,9 @@ class Cat : Animal
 }
 ```
 
-### `Dog.cs`的代码如下
+#### `Dog.cs`
 
-```
+```cs
 class Dog : Animal
 {
   public Dog(string name, string color, string kind, string favorite)
@@ -58,6 +60,7 @@ class Dog : Animal
   {
     this.Favorite = favorite;
   }
+
   //赛跑
   public void Race()
   {
@@ -67,9 +70,9 @@ class Dog : Animal
 }
 ```
 
-### `Program.cs`的代码如下
+#### `Program.cs`
 
-```
+```cs
 class Program
 {
   static void Main(string[] args)

@@ -1,14 +1,15 @@
-## 没有使用继承的程序
+### 没有使用继承的程序
 
-### 新建一个`Cat.cs`
+#### 新建一个`Cat.cs`
 
-```
+```cs
 class Cat
 {
   public string Name { get; set; }//名字
   public string Color { get; set; }//颜色
   public string Kind { get; set; }//种类
   public string Favorite { get; set; }//喜好
+
   //自我介绍
   public void Introduce()
   {
@@ -16,6 +17,7 @@ class Cat
         Kind, Name, Color, Favorite);
     Console.WriteLine(info);
   }
+
   //跳舞
   public void Dancing()
   {
@@ -26,13 +28,14 @@ class Cat
 
 ### 新建一个`Dog.cs`
 
-```
+```cs
 class Dog
 {
   public string Name { get; set; }//名字
   public string Color { get; set; }//颜色
   public string Kind { get; set; }//种类
   public string Favorite { get; set; }//喜好
+
   //自我介绍
   public void Introduce()
   {
@@ -40,6 +43,7 @@ class Dog
         Kind, Name, Color, Favorite);
     Console.WriteLine(info);
   }
+
   //赛跑
   public void Race()
   {
@@ -50,7 +54,7 @@ class Dog
 
 ### 在`Program.cs`中调用
 
-```
+```cs
 class Program
 {
   static void Main(string[] args)

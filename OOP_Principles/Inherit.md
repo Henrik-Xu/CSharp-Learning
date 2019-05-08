@@ -1,14 +1,15 @@
-## 使用继承改进程序
+### 使用继承改进程序
 
-### 新建一个类`Animal.cs`,这个类是`Cat.cs`和`Dog.cs`的基类,包含了两个类中类似的属性和方法。
+#### 新建一个类`Animal.cs`,这个类是`Cat.cs`和`Dog.cs`的基类,包含了两个类中类似的属性和方法。
 
-```
+```cs
 class Animal
 {
   public string Name { get; set; }//名字
   public string Color { get; set; }//颜色
   public string Kind { get; set; }//种类
   public string Favorite { get; set; }//喜好
+
   //自我介绍
   public void Introduce()
   {
@@ -19,9 +20,9 @@ class Animal
 }
 ```
 
-### `Cat.cs`的代码如下
+#### `Cat.cs`
 
-```
+```cs
 class Cat : Animal
 {
     //跳舞
@@ -32,9 +33,9 @@ class Cat : Animal
 }
 ```
 
-### `Dog.cs`的代码如下
+#### `Dog.cs`
 
-```
+```cs
 class Dog : Animal
 {
     //赛跑
@@ -45,9 +46,9 @@ class Dog : Animal
 }
 ```
 
-### `Program.cs`的代码如下
+#### `Program.cs`
 
-```
+```cs
 class Program
 {
     static void Main(string[] args)
