@@ -16,6 +16,8 @@
 
 #### 基于泛型类的出栈入栈
 
+[基于泛型类的出栈入栈](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/GenericClassAndMethod/myApp/GenericStack.cs)
+
 ## Demo 2.(泛型类中使用的几个关键点)
 
 #### No 1. `default`关键字的使用([default 关键字](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/statements-expressions-operators/default-value-expressions))
