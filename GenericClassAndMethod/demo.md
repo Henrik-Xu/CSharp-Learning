@@ -1,103 +1,24 @@
-## Demo 1.热身（基于泛型类的出栈入栈）
+### 泛型
 
-### Step 1.新建一个`GenericStack.cs`类，写入以下代码
+#### 泛型的好处
 
-```
- /*
-  泛型的好处：增加类型安全，编码灵活性提高;
-  常见泛型：泛型类、泛型方法;后续深入：泛型委托（自定义委托、常见系统泛型委托Func、Action）
-  泛型类的规范： public class 类名<T>{类的成员...};T: 仅仅是一个占位符，只要符合C#命名规范即可。
-  但是一般使用T,表示一个通用的数据类型，在使用的时候用实际的类型代替。
-  如果包含任意多个类型的参数，参数之间用逗号分隔。GenericStack<T1，T2，T3>{...}
-  所定义的各种类型参数，可以用做成员变量的类型、属性、方法等返回值类型及方法参数...
-*/
- /// <summary>
- /// 泛型堆栈：入栈和出栈操作类（任意类型）
- /// </summary>
- /// <typeParam name="T">可以是任意类型</typeParam>
-public class GenericStack<T>
-{
-  private T[] stackArray;//泛型数组
-  private int currentPosition;//当前位置
-  private int count;//栈的数据容量
+增加类型安全，编码灵活性提高。
 
-  public GenericStack(int count)
-  {
-    this.count = count;
-    this.stackArray = new T[count];//初始化数组大小
-    this.currentPosition = 0;//当前位置默认值，索引从0开始
-  }
+常见泛型：泛型类、泛型方法;后续深入：泛型委托（自定义委托、常见系统泛型委托 Func、Action）。
 
-  /// <summary>
-  /// 入栈方法
-  /// </summary>
-  /// <param name="item"></param>
-  public void Push(T item)
-  {
-    if (currentPosition >= count)
-    {
-        Console.WriteLine("栈空间已经满！");
-    }
-    else
-    {
-        this.stackArray[currentPosition] = item;//将当前元素压入栈
-        currentPosition++;//调整位置索引值
-    }
-  }
-  /// <summary>
-  /// 出栈方法
-  /// </summary>
-  /// <returns></returns>
-  public T Pop()
-  {
-    T data = this.stackArray[currentPosition - 1];
-    currentPosition--;
-    return data;
-  }
-}
-```
+泛型类的规范： public class 类名<T>{类的成员...};T: 仅仅是一个占位符，只要符合 C#命名规范即可。
 
-### Step 2.在`Program.cs`文件中调用方法
+但是一般使用 T,表示一个通用的数据类型，在使用的时候用实际的类型代替。
 
-```
-static void Main(string[] args)
-{
-  //【1】创建泛型类对象
-  GenericStack<int> stack1 = new GenericStack<int>(5);
-  //【2】入栈
-  stack1.Push(1);
-  stack1.Push(2);
-  stack1.Push(3);
-  stack1.Push(4);
-  stack1.Push(5);
-  //【3】出栈
-  Console.WriteLine(stack1.Pop());
-  Console.WriteLine(stack1.Pop());
-  Console.WriteLine(stack1.Pop());
-  Console.WriteLine(stack1.Pop());
-  Console.WriteLine(stack1.Pop());
+如果包含任意多个类型的参数，参数之间用逗号分隔。GenericStack<T1，T2，T3>{...}
 
-  GenericStack<string> stack2 = new GenericStack<string>(5);
+所定义的各种类型参数，可以用做成员变量的类型、属性、方法等返回值类型及方法参数...
 
-  stack2.Push("课程1");
-  stack2.Push("课程2");
-  stack2.Push("课程3");
-  stack2.Push("课程4");
-  stack2.Push("课程5");
-
-  Console.WriteLine(stack2.Pop());
-  Console.WriteLine(stack2.Pop());
-  Console.WriteLine(stack2.Pop());
-  Console.WriteLine(stack2.Pop());
-  Console.WriteLine(stack2.Pop());
-
-  Console.Read();
-}
-```
+#### 基于泛型类的出栈入栈
 
 ## Demo 2.(泛型类中使用的几个关键点)
 
-### No 1. `default`关键字的使用([default 关键字](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/statements-expressions-operators/default-value-expressions))
+#### No 1. `default`关键字的使用([default 关键字](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/statements-expressions-operators/default-value-expressions))
 
 新建一个类`GenericClass1.cs`
 
@@ -119,7 +40,7 @@ public class GenericClass1<T1, T2>
 }
 ```
 
-### No 2. 添加约束类型的泛型类([类型参数的约束](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters))
+#### No 2. 添加约束类型的泛型类([类型参数的约束](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters))
 
 新建一个类`GenericClass2.cs`
 
@@ -158,7 +79,7 @@ public class GenericClass2<T1, T2, T3>
 }
 ```
 
-### No 3. 根据泛型类要求设计参数
+#### No 3. 根据泛型类要求设计参数
 
 ```
 class Course
