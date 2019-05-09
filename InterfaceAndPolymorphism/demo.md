@@ -1,27 +1,32 @@
-## 接口和多态
+### 接口和多态
 
-### 1. .NET 中接口的定义规范
+#### 1. .NET 中接口的定义规范
 
-&nbsp;&nbsp;&nbsp;&nbsp;a.使用关键字 `interface` 定义，接口类名称通常使用`I`开头。  
-&nbsp;&nbsp;&nbsp;&nbsp;b.接口中的属性、方法等，只是做一个声明，而没有任何实现。  
-&nbsp;&nbsp;&nbsp;&nbsp;c.接口中的属性、方法等，默认都是 `public`,不要画蛇添足。
+- a.使用关键字 `interface` 定义，接口类名称通常使用`I`开头。
 
-### 2.接口的特点
+- b.接口中的属性、方法等，只是做一个声明，而没有任何实现。
 
-&nbsp;&nbsp;&nbsp;&nbsp;a.接口具有强制性，实现接口的类必须实现接口的所有成员。  
-&nbsp;&nbsp;&nbsp;&nbsp;b.一个类既可以实现多个接口，也可以同时继承其它类。
+- c.接口中的属性、方法等，默认都是 `public`,不要画蛇添足。
 
-### 3.提高团队成员并行开发项目的效率
+#### 2.接口的特点
 
-&nbsp;&nbsp;&nbsp;&nbsp;a.接口使用者只关心接口的应用功能，而不关心接口的实现细节。  
-&nbsp;&nbsp;&nbsp;&nbsp;b.接口的实现者只关心接口如何实现的内部细节，而不关心谁使用。
+- a.接口具有强制性，实现接口的类必须实现接口的所有成员。
 
-### 4.接口的应用场合
+- b.一个类既可以实现多个接口，也可以同时继承其它类。
 
-&nbsp;&nbsp;&nbsp;&nbsp;a.如果某一个功能点需求变化较多，应使用接口保证系统的可扩展性。  
-&nbsp;&nbsp;&nbsp;&nbsp;b.如果想实现团队成员的并行开发，可以使用接口来规范对象的使用。
+#### 3.提高团队成员并行开发项目的效率
 
-### 5.接口和抽象类的比较
+- a.接口使用者只关心接口的应用功能，而不关心接口的实现细节。
+
+- b.接口的实现者只关心接口如何实现的内部细节，而不关心谁使用。
+
+#### 4.接口的应用场合
+
+- a.如果某一个功能点需求变化较多，应使用接口保证系统的可扩展性。
+
+- b.如果想实现团队成员的并行开发，可以使用接口来规范对象的使用。
+
+#### 5.接口和抽象类的比较
 
 |        |                 抽象类                 |             接口             |
 | ------ | :------------------------------------: | :--------------------------: |
@@ -33,11 +38,11 @@
 |        |           都包含未实现的方法           |
 |        | 子类或“接口实现类”必须实现未实现的方法 |
 
-### 6. demo
+#### 6. demo
 
-新建一个接口定义类`IMultiPrint.cs`类
+`IMultiPrint.cs`
 
-```
+```cs
 /// <summary>
 /// 多功能打印机接口
 /// </summary>
@@ -56,7 +61,7 @@ public interface IMultiPrinter
 
 `CanonPrinter.cs`
 
-```
+```cs
 public class CanonPrinter : IMultiPrinter
 {
   public void Print(string contents)
@@ -64,11 +69,13 @@ public class CanonPrinter : IMultiPrinter
     //在这里编写打印程序...
     Console.WriteLine("佳能打印机正在打印：" + contents);
   }
+
   public void Copy(string contents)
   {
     //在这里编写复印程序...
     Console.WriteLine("佳能打印机正在复印：" + contents);
   }
+
   public bool Fax(string contents)
   {
     //在这里编写传真程序...
@@ -80,7 +87,7 @@ public class CanonPrinter : IMultiPrinter
 
 `EpsonMultiPrinter.cs`
 
-```
+```cs
 public  class EpsonMultiPrinter:IMultiPrinter
 {
   public void Print(string contents)
@@ -89,12 +96,14 @@ public  class EpsonMultiPrinter:IMultiPrinter
     Console.WriteLine("欢迎使用Epson打印机！");
     Console.WriteLine("Epson打印机正在打印：" + contents);
   }
+
   public void Copy(string contents)
   {
     //在这里编写复印程序...
     Console.WriteLine("欢迎使用Epson打印机！");
     Console.WriteLine("Epson打印机正在复印：" + contents);
   }
+
   public bool Fax(string contents)
   {
     //在这里编写传真程序...
@@ -107,7 +116,7 @@ public  class EpsonMultiPrinter:IMultiPrinter
 
 `HPMultiPrinter.cs`
 
-```
+```cs
 class HPMultiPrinter : IMultiPrinter
 {
   public void Print(string contents)
@@ -116,12 +125,14 @@ class HPMultiPrinter : IMultiPrinter
     Console.WriteLine("欢迎使用HP打印机！");
     Console.WriteLine("HP打印机正在打印：" + contents);
   }
+
   public void Copy(string contents)
   {
     //在这里编写复印程序...
     Console.WriteLine("欢迎使用HP打印机！");
     Console.WriteLine("HP打印机正在复印：" + contents);
   }
+
   public bool Fax(string contents)
   {
     //在这里编写传真程序...
@@ -132,9 +143,9 @@ class HPMultiPrinter : IMultiPrinter
 }
 ```
 
-接着在`Program.cs`中实现多态
+`Program.cs`中实现多态
 
-```
+```cs
 class Program
 {
   static void Main(string[] args)
