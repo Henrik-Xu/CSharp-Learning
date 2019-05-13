@@ -1,6 +1,8 @@
-## 反射
+### 反射
 
-### 在.NET 中，反射（reflection）是一个运行库类型发现的过程。使用反射服务，可以通过编程使用一个友好的对象模型得到与通过`ildasm.exe`显示的相同的元数据信息。
+#### 定义
+
+在.NET 中，反射（reflection）是一个运行库类型发现的过程。使用反射服务，可以通过编程使用一个友好的对象模型得到与通过`ildasm.exe`显示的相同的元数据信息。
 
 新建一个控制台应用程序，取名`Demo`,在这里告诉读者项目的名字的原因是后面反射需要用到的命名空间和项目名称有关。
 
@@ -210,9 +212,9 @@ public class Teacher
 
 打开`Program.cs`文件,注意，我们首先在 Main 函数结尾加一行`Console.Read()`代码，为了让我们更清楚看控制台的结果。
 
-### 程序依据需求的不同，耦合度不断的变化，开发者应该对这一些列变化深入掌握，才能更好的把握.Net 原理
+#### 程序依据需求的不同，耦合度不断的变化，开发者应该对这一些列变化深入掌握，才能更好的把握.Net 原理
 
-### 【1】普通对象的创建：性能最好，最容易理解，耦合度最高
+#### 【1】普通对象的创建：性能最好，最容易理解，耦合度最高
 
 ```
 static void Main(string[] args)
@@ -223,7 +225,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【2】基于接口的对象创建：接口更好的体现面向抽象编程，一定程度解耦
+#### 【2】基于接口的对象创建：接口更好的体现面向抽象编程，一定程度解耦
 
 ```
 static void Main(string[] args)
@@ -234,7 +236,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【3】反射的基本使用,引入命名空间`using System.Reflection;`
+#### 【3】反射的基本使用,引入命名空间`using System.Reflection;`
 
 [Load](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.load?view=netframework-4.7.2)
 [LoadFrom](https://docs.microsoft.com/zh-cn/dotnet/api/system.reflection.assembly.loadfrom?view=netframework-4.7.2)
@@ -258,7 +260,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【4】基于反射的对象创建
+#### 【4】基于反射的对象创建
 
 晚期绑定（late binding)是一种创建一个给定类型的实例并在运行时调用其成员，而不需要在编译时知道它存在的一种技术。[System.Activator](https://docs.microsoft.com/en-us/dotnet/api/system.activator.createinstance?view=netframework-4.7.2#System_Activator_CreateInstance_System_Type_)类是.NET 晚期绑定过程中的关键所在。
 
@@ -281,7 +283,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【5】反射的基本使用（对象的延迟创建：简单工厂，抽象工厂...）
+#### 【5】反射的基本使用（对象的延迟创建：简单工厂，抽象工厂...）
 
 新建一个`SimpleFactory.cs`文件,需要引用`System.Configuration`程序集,并且在项目中添加(`using System.Configuration;`)进来，同时还要添加`System.Reflection;`命名空间
 
@@ -316,7 +318,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【6】在反射中使用构造方法
+#### 【6】在反射中使用构造方法
 
 ```
 static void Main(string[] args)
@@ -340,7 +342,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【7】单例模式中私有构造方法调用
+#### 【7】单例模式中私有构造方法调用
 
 ```
 static void Main(string[] args)
@@ -355,7 +357,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【8】泛型类中使用反射创建对象
+#### 【8】泛型类中使用反射创建对象
 
 如果我们调用 Type.GetType()来获取泛型类型的元数据描述，就必须使用包含“反引号”（`）加上数字值得语法来表示类型支持的类型参数个数。
 
@@ -378,7 +380,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【9】基于反射调用实例公有方法、私有方法、静态方法
+#### 【9】基于反射调用实例公有方法、私有方法、静态方法
 
 ```
 static void Main(string[] args)
@@ -424,7 +426,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【10】基于反射调用字段和属性
+#### 【10】基于反射调用字段和属性
 
 ```
 static void Main(string[] args)
@@ -462,7 +464,7 @@ static void Main(string[] args)
 }
 ```
 
-### 【11】关于反射的性能测试和优化,引入命名空间`using System.Diagnostics;`
+#### 【11】关于反射的性能测试和优化,引入命名空间`using System.Diagnostics;`
 
 ```
 static void Main(string[] args)
