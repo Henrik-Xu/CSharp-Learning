@@ -9,9 +9,9 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/GenericClassAndMethod/myApp/bin/Debug/netcoreapp2.1/myApp.dll",
+      "program": "${workspaceFolder}/Reflect/myApp/bin/Debug/netcoreapp2.1/myApp.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/GenericClassAndMethod/myApp",
+      "cwd": "${workspaceFolder}/Reflect/myApp",
       "console": "internalConsole",
       "stopAtEntry": false
     },
