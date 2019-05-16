@@ -27,13 +27,13 @@ Console.WriteLine("【4】var在匿名类中的使用-->姓名：{0} 年龄：{1
 
 委托创建的基本步骤 :
 
-- 1. 声明委托
+1. 声明委托
 
-- 2. 根据委托定义具体的方法
+2. 根据委托定义具体的方法
 
-- 3. 创建委托对象（关联具体的方法）
+3. 创建委托对象（关联具体的方法）
 
-- 4. 通过委托调用方法，而不是直接使用方法
+4. 通过委托调用方法，而不是直接使用方法
 
 ```cs
 // 1. 声明委托
@@ -219,7 +219,7 @@ IPerson<Student> pList5 = new Teacher<Person>(); // 将子类 Student 用父类 
 
 - this 关键字 : 表示可以向 this 关键字后面的类型添加扩展方法。
 
--扩展方法使用中应该注意的问题：
+扩展方法使用中应该注意的问题：
 
 - 扩展方法必须定义在静态类中，扩展方法本身也是静态方法，扩展方法也可以重载。
 
@@ -278,13 +278,13 @@ public static class CustomExtendMethod
  {
     Console.WriteLine("------------------扩展方法的更多应用---------------------");
       List<Student> stuList = new List<Student>
-            {
-                new Student { StudentId = 1001, Age = 20, StudentName = "VIP学员001" },
-                new Student { StudentId = 1005, Age = 22, StudentName = "VIP学员002" },
-                new Student { StudentId = 1007, Age = 28, StudentName = "VIP学员003" },
-                new Student { StudentId = 1004, Age = 25, StudentName = "VIP学员004" },
-                new Student { StudentId = 1003, Age = 29, StudentName = "VIP学员005" }
-            };
+      {
+          new Student { StudentId = 1001, Age = 20, StudentName = "VIP学员001" },
+          new Student { StudentId = 1005, Age = 22, StudentName = "VIP学员002" },
+          new Student { StudentId = 1007, Age = 28, StudentName = "VIP学员003" },
+          new Student { StudentId = 1004, Age = 25, StudentName = "VIP学员004" },
+          new Student { StudentId = 1003, Age = 29, StudentName = "VIP学员005" }
+      };
 
     //使用扩展方法，轻松完成对象查找
     var list = stuList.Where(s => s.Age > 25);
