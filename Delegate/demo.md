@@ -185,7 +185,11 @@ Console.WriteLine(myFunc(1, 2));
 
 #### 6. 协变和逆变
 
-- .Net 4 之前，泛型接口是不能变化，.Net 4 通过协变和逆变（抗变）为泛型接口、泛型委托添加一个重要的扩展。
+.Net 4 之前，泛型接口是不能变化，.Net 4 通过协变和逆变（抗变）为泛型接口、泛型委托添加一个重要的扩展。
+
+协变允许接口方法具有与泛型类型参数定义的返回类型相比，派生程度更大的返回类型。 
+
+逆变允许接口方法具有与泛型形参指定的实参类型相比，派生程度更小的实参类型。
 
 - 协变和逆变是针对《参数》和《返回值》的类型进行自动转换
 
@@ -193,9 +197,24 @@ Console.WriteLine(myFunc(1, 2));
 
 - in（逆变）：放到方法《参数》前面 in 表示入
 
+注意事项 ：
+
+- 只有引用类型才支持使用泛型接口中的变体。 值类型不支持变体。
+
+- 实现变体接口的类仍是固定类。
+
+```cs
+// The following line generates a compiler error
+// because classes are invariant.
+// List<Object> list = new List<String>();
+
+// You can use the interface object instead.
+IEnumerable<Object> listObjects = new List<String>();
+```
+
 ```cs
 Person person1 = new Student(); //依据里氏替换原则
-                                // Student stu =new Person();//不允许直接赋值的
+// Student stu =new Person();//不允许直接赋值的
 
 List<Person> pList1 = new List<Person>();
 // List<Person> pList2 = new List<Student>();
