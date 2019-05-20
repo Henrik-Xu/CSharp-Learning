@@ -1,4 +1,4 @@
-## 进程和线程
+### 进程和线程
 
 - 进程：一个正在运行的程序就是一个进程,操作系统根据进程分配各种资源（内存...）。
 
@@ -16,13 +16,13 @@
 
 - ProcessThread 类：用于表示操作系统中真实的本地线程。
 
-新建一个 WinForm 桌面应用程序，桌面布局如下所示,两个按钮分别取名`btnExecute1`和`btnExecute2`
+`WinForm` 桌面应用程序，,两个按钮 `btnExecute1` 和 `btnExecute2`
 
 ![](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/imgs/1.png)
 
-在`btnExecute1`的点击事件中添加如下代码
+`btnExecute1`的点击事件中添加如下代码
 
-```
+```cs
 private void btnExecute1_Click(object sender, EventArgs e)
 {
   int a = 0;
@@ -40,9 +40,9 @@ private void btnExecute1_Click(object sender, EventArgs e)
 }
 ```
 
-在`btnExecute2`的点击事件中添加如下代码
+`btnExecute2`的点击事件中添加如下代码
 
-```
+```cs
 private void btnExecute2_Click(object sender, EventArgs e)
 {
   Thread thread2 = new Thread(delegate ()
