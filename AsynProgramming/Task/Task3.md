@@ -4,13 +4,17 @@
 
 摘要:
 
-&nbsp;&nbsp;指定将任务附加到任务层次结构中的某个父级。默认情况下，子任务（即由外部任务创建的内部任务）将独立于其父任务执行。
+&nbsp;&nbsp;指定将任务附加到任务层次结构中的某个父级。默认情况下，子任务（即由外部任务创建的内部任务）将独立于其父任务
+
+执行。
 
 可以使用 `System.Threading.Tasks.TaskContinuationOptions.AttachedToParent`, 选项以便将父任务和子任务同步。请注意，
 
 如果使用 `System.Threading.Tasks.TaskCreationOptions.DenyChildAttach` 选项配置父任务，则子任务中的
 
-`System.Threading.Tasks.TaskCreationOptions.AttachedToParent` 选项不起作用，并且子任务将作为分离的子任务执行。有关详细信息，请参阅附加和分离的子任务。
+`System.Threading.Tasks.TaskCreationOptions.AttachedToParent` 选项不起作用，并且子任务将作为分离的子任务执行。
+
+有关详细信息，请参阅附加和分离的子任务。
 
 ```cs
 Task parentTask = new Task(() =>
@@ -62,9 +66,11 @@ Task parentTask = new Task(() =>
   parentTask.Wait();
 ```
 
-`TaskCreationOptions.LongRunning`: 如果你明确的知道这个任务是运行时间长，建议你选择此项。同时我们也建议使用“Thread”，而不是 ThreadPool。
+`TaskCreationOptions.LongRunning`: 如果你明确的知道这个任务是运行时间长，建议你选择此项。同时我们也建议使
 
-如果我们采用了 ThreadPool,我们长时间的使用线程，而不归还，强制开启新的线程，会影响性能
+用“Thread”，而不是 ThreadPool。如果我们采用了 ThreadPool,我们长时间的使用线程，而不归还，强制开启新的线程，
+
+会影响性能。
 
 ```cs
 Task task1 = new Task(() =>
