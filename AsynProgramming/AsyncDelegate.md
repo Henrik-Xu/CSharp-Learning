@@ -1,14 +1,15 @@
-## 异步委托
+### 异步委托
 
-新建一个 WinForm 桌面应用程序，桌面布局如下所示,两个按钮分别取名`btnTest1`和`btnTest2`
+WinForm 桌面应用程序，桌面布局如下所示,两个按钮分别取名 `btnTest1` 和 `btnTest2`
 
 ![](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/imgs/1.png)
 
 添加两个方法，用来和委托事件关联：
 
-```
+```cs
 private int ExecuteTask1(int num)
 {
+  // 模拟长时间的任务
   System.Threading.Thread.Sleep(5000);
   return num * num;
 }
@@ -18,9 +19,11 @@ private int ExecuteTask2(int num)
 }
 ```
 
-在第一个`btnTest1`的点击事件中实现同步编程，可以发现整个`lblInfo2`需要等待`lblInfo1`执行完成之后再显示，而且整个应用程序处于阻塞状态，十分影响体验。
+`btnTest1` 的点击事件中实现同步编程，可以发现整个 `lblInfo2` 需要等待 `lblInfo1` 执行完成之后再显示，
 
-```
+而且整个应用程序处于阻塞状态，十分影响体验。
+
+```cs
 private void btnTest1_Click(object sender, EventArgs e)
 {
   this.lblInfo1.Text = ExecuteTask1(10).ToString();
@@ -28,14 +31,19 @@ private void btnTest1_Click(object sender, EventArgs e)
 }
 ```
 
-在第二个`btnTest2`的点击事件中，我们使用异步委托来实现异步编程
+`btnTest2` 的点击事件中，使用异步委托来实现异步编程
 
-```
-// BeginInvoke（<输入和输出变量>,AysncCallBak,object asyncState)方法：异步调用的核心
-// 第一个参数10，表示委托对应的方法实参。
-// 第二个参数AysncCallBak，回调函数，表示异步调用结束的时候自动调用的函数
-// 第三个参数，asyncState，用来传递异步相关结果，也就是向回调函数提供相关的数据
-// 返回值： IAsyncResult-->异步操作的状态接口。封装了异步中执行中的参数。
+IAsyncResult result = BeginInvoke（<输入和输出变量>,AsyncCallBak,object asyncState)方法：异步调用的核心
+
+- 第一个参数 10，表示委托对应的方法实参
+
+- 第二个参数 AsyncCallBak，回调函数，表示异步调用结束的时候自动调用的函数
+
+- 第三个参数，asyncState，用来传递异步相关结果，也就是向回调函数提供相关的数据
+
+- 返回值： IAsyncResult --> 异步操作的状态接口。封装了异步中执行中的参数。
+
+```cs
 private void btnTest2_Click(object sender, EventArgs e)
 {
   Func<int, int> myCal2 = ExecuteTask1;

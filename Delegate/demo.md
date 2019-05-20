@@ -329,5 +329,4 @@ public static class CustomExtendMethod
       Console.WriteLine($"{item.StudentId}\t{item.StudentName}\t{item.Age}");
     }
  }
-
 ```

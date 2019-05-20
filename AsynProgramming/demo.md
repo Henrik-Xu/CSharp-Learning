@@ -1,6 +1,6 @@
-C#异步编程的学习路线：异步委托-->Thead-->ThreadPool-->Task(重点)-->并行计算（Parallel，PLinQ）-->async/await
+C# 异步编程的学习路线：异步委托 --> Thead --> ThreadPool -->Task (重点)--> 并行计算（Parallel，PLinQ）--> async/await
 
-- [异步委托](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/AsyncDemo.md)
+- [异步委托](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/AsyncDelegate.md)
 
 - [异步委托回调函数](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/AsyncCallbackDemo.md)
 
