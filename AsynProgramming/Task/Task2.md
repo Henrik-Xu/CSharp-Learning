@@ -1,10 +1,8 @@
 ## Task 的基本使用 2
 
-1.使用`Task`各种阻塞方法
+1.使用 `Task` 各种阻塞方法
 
-```
-static void Main(string[] args)
-{
+```cs
   Task task1 = new Task(() =>
   {
     Thread.Sleep(1000);
@@ -22,99 +20,38 @@ static void Main(string[] args)
   // 第一种：等待所有的任务都完成
   Task.WaitAll(task1, task2);
 
-  // var taskArray = new Task[2] { task1, task2 };
-  // Task.WaitAll(taskArray);
+  var taskArray = new Task[2] { task1, task2 };
+  Task.WaitAll(taskArray);
 
-  // var taskArray = new Task[2] { task1, task2 };
-  // Task.WaitAny(taskArray);
-
-  Console.WriteLine("This is Main Thread!");
-
-  Console.Read();
-}
+  // 第二种：等待任一任务完成
+  var taskArray2 = new Task[2] { task1, task2 };
+  Task.WaitAny(taskArray2);
 ```
 
-2.`Task`的延续 1：`WhenAll`
+2.`Task`的延续
 
-```
-static void Main(string[] args)
-{
-  Task task1 = new Task(() =>
-  {
-    Thread.Sleep(1000);
-    Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
-  });
-  task1.Start();
+- 1: `WhenAll`
 
-  Task task2 = new Task(() =>
-  {
-    Thread.Sleep(2000);
-    Console.WriteLine("Child（2）Time={0}", DateTime.Now.ToLongTimeString());
-  });
-  task2.Start();
-
-  //线程的延续...(主线下不等待，子线程依次执行)
+```cs
   Task.WhenAll(task1, task2).ContinueWith(task3 =>
   {
     Console.WriteLine("Child（3）Time={0}", DateTime.Now.ToLongTimeString());
   });
-
-  Console.WriteLine("This is Main Thread!");
-
-  Console.Read();
 }
 ```
 
-3.`Task`的延续 2：`WhenAny`
+2：`WhenAny`
 
-```
-static void Main(string[] args)
-{
-  Task task1 = new Task(() =>
-  {
-    Thread.Sleep(1000);
-    Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
-  });
-  task1.Start();
-
-  Task task2 = new Task(() =>
-  {
-    Thread.Sleep(3000);
-    Console.WriteLine("Child（2）Time={0}", DateTime.Now.ToLongTimeString());
-  });
-  task2.Start();
-
-  //线程的延续...(任何一个线程执行完，就执行后面的线程，主线程依然不等待)
-  Task.WhenAny(task1, task2).ContinueWith(task3 =>
+```cs
+ Task.WhenAny(task1, task2).ContinueWith(task3 =>
   {
     Console.WriteLine("Child（3）Time={0}", DateTime.Now.ToLongTimeString());
   });
-
-  Console.WriteLine("This is Main Thread!");
-
-  Console.Read();
-}
 ```
 
-4.`Task`的延续,3:使用工厂完成：`ContinueWhenAll`
+3:使用工厂完成：`ContinueWhenAll`
 
-```
-static void Main(string[] args)
-{
-  Task task1 = new Task(() =>
-  {
-    Thread.Sleep(1000);
-    Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
-  });
-  task1.Start();
-
-  Task task2 = new Task(() =>
-  {
-    Thread.Sleep(3000);
-    Console.WriteLine("Child（2）Time={0}", DateTime.Now.ToLongTimeString());
-  });
-  task2.Start();
-
+```cs
   // Factory里面的：public Task ContinueWhenAll(Task[] tasks, Action<Task[]> continuationAction);
   // 摘要:
   //     创建一个延续任务，该任务在一组指定的任务完成后开始。
@@ -134,8 +71,4 @@ static void Main(string[] args)
     Console.WriteLine("Child（3）Time={0}", DateTime.Now.ToLongTimeString());
   });
 
-  Console.WriteLine("This is Main Thread!");
-
-  Console.Read();
-}
 ```
