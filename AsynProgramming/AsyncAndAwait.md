@@ -14,7 +14,7 @@
 
 - 7.根据命名约定，要被异步调用的方法应该以`Async`作为后缀。
 
-```
+```cs
 static void Main(string[] args)
 {
   string txt = DoWorkAsync().Result;

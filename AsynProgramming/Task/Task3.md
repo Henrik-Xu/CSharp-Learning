@@ -18,52 +18,52 @@
 
 ```cs
 Task parentTask = new Task(() =>
+{
+  //任务1
+  Task task1 = new Task(() =>
   {
-    //任务1
-    Task task1 = new Task(() =>
-    {
-      Thread.Sleep(1000);
-      Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
-    }, TaskCreationOptions.AttachedToParent);
-    task1.Start();
+    Thread.Sleep(1000);
+    Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
+  }, TaskCreationOptions.AttachedToParent);
+  task1.Start();
 
-    //任务2
-    Task task2 = new Task(() =>
-    {
-      Thread.Sleep(3000);
-      Console.WriteLine("Child（2）Time={0}", DateTime.Now.ToLongTimeString());
-    }, TaskCreationOptions.AttachedToParent);
-    task2.Start();
-  });
+  //任务2
+  Task task2 = new Task(() =>
+  {
+    Thread.Sleep(3000);
+    Console.WriteLine("Child（2）Time={0}", DateTime.Now.ToLongTimeString());
+  }, TaskCreationOptions.AttachedToParent);
+  task2.Start();
+});
 
-  parentTask.Start();
-  parentTask.Wait();//等待附加的子任务全部完成，相当于：Task.WaitAll(task1,task2);
-                    //如果子线程不使用TaskCreationOptions.AttachedToParent，则主线程直接运行不等待
+parentTask.Start();
+parentTask.Wait();//等待附加的子任务全部完成，相当于：Task.WaitAll(task1,task2);
+                  //如果子线程不使用TaskCreationOptions.AttachedToParent，则主线程直接运行不等待
 ```
 
 `TaskCreationOptions.DenyChildAttach` 禁止子任务附加,如果前面附加了，在这里等于没有附加。
 
 ```cs
 Task parentTask = new Task(() =>
+{
+  //任务1
+  Task task1 = new Task(() =>
   {
-    //任务1
-    Task task1 = new Task(() =>
-    {
-      Thread.Sleep(1000);
-      Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
-    }, TaskCreationOptions.AttachedToParent);
-    task1.Start();
-    //任务2
-    Task task2 = new Task(() =>
-    {
-      Thread.Sleep(3000);
-      Console.WriteLine("Child（2）Time={0}", DateTime.Now.ToLongTimeString());
-    }, TaskCreationOptions.AttachedToParent);
-    task2.Start();
-  }, TaskCreationOptions.DenyChildAttach);//禁止子任务附加（如果前面附加了，在这里等于没有附加）
+    Thread.Sleep(1000);
+    Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
+  }, TaskCreationOptions.AttachedToParent);
+  task1.Start();
+  //任务2
+  Task task2 = new Task(() =>
+  {
+    Thread.Sleep(3000);
+    Console.WriteLine("Child（2）Time={0}", DateTime.Now.ToLongTimeString());
+  }, TaskCreationOptions.AttachedToParent);
+  task2.Start();
+}, TaskCreationOptions.DenyChildAttach);//禁止子任务附加（如果前面附加了，在这里等于没有附加）
 
-  parentTask.Start();
-  parentTask.Wait();
+parentTask.Start();
+parentTask.Wait();
 ```
 
 `TaskCreationOptions.LongRunning`: 如果你明确的知道这个任务是运行时间长，建议你选择此项。同时我们也建议使
@@ -74,13 +74,13 @@ Task parentTask = new Task(() =>
 
 ```cs
 Task task1 = new Task(() =>
-  {
-    Thread.Sleep(1000);
-    Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
-  }, TaskCreationOptions.LongRunning);
+{
+  Thread.Sleep(1000);
+  Console.WriteLine("Child（1）Time={0}", DateTime.Now.ToLongTimeString());
+}, TaskCreationOptions.LongRunning);
 
-  task1.Start();
-  task1.Wait();
+task1.Start();
+task1.Wait();
 
-  //以上代码看不到效果...可以通过windbg去看（略）
+//以上代码看不到效果...可以通过windbg去看（略）
 ```

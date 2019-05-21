@@ -5,7 +5,7 @@ Task 中的取消功能：使用的是 CacellationTokenSoure 解决多任务中�
 1.简单的线程的取消（存在 bug）
 
 ```cs
- var isStop = false;//标志变量
+var isStop = false;//标志变量
 var thread = new Thread(() =>
 {
   while (!isStop)
@@ -42,7 +42,9 @@ Thread.Sleep(1000);
 cts.Cancel();
 ```
 
-3.`Task`任务取消的时候，我们希望能够有一些其他的清理工作要执行，也就是这个取消的动作会触发一个任务，比如更新订单队列，或数据库等
+3.`Task`任务取消的时候，我们希望能够有一些其他的清理工作要执行，也就是这个取消的动作会触发一个任务，比如更新
+
+订单队列，或数据库等
 
 ```cs
 CancellationTokenSource cts = new CancellationTokenSource();
@@ -68,7 +70,9 @@ Thread.Sleep(1000);
 cts.Cancel();
 ```
 
-4.`Task`任务延时取消：比如我们请求远程的接口，如果在指定时间没有返回数据，我们可以做一个时间限制，超时可以取消任务
+4.`Task`任务延时取消：比如我们请求远程的接口，如果在指定时间没有返回数据，我们可以做一个时间限制，超时可以
+
+取消任务
 
 ```cs
 //CancellationTokenSource cts = new CancellationTokenSource();
