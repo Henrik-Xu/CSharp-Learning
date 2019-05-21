@@ -1,73 +1,59 @@
-## Task 中的返回值
+#### Task 中的返回值
 
 1.常规的获取返回值
 
-```
-static void Main(string[] args)
+```cs
+Task<int> task1 = Task.Factory.StartNew(() =>
 {
-  Task<int> task1 = Task.Factory.StartNew(() =>
-  {
-      //在这个地方可以编写自己需要的逻辑部分...
-      return 100;
-  });
+    //在这个地方可以编写自己需要的逻辑部分...
+    return 100;
+});
 
-  //  task1.Wait();
-  Console.WriteLine(task1.Result);
-
-  Console.Read();
-}
+//  task1.Wait();
+Console.WriteLine(task1.Result);
 ```
 
 2.`ContinueWith<TResult>`也可以具有返回值
 
-```
-static void Main(string[] args)
+```cs
+Task<int> task1 = Task.Factory.StartNew(() =>
 {
-  Task<int> task1 = Task.Factory.StartNew(() =>
-  {
-    //在这个地方可以编写自己需要的逻辑部分...
+  //在这个地方可以编写自己需要的逻辑部分...
 
-    return 100;
-  });
-  var task2 = task1.ContinueWith(task =>
-  {
-    var num = task.Result;
-    var square = num * num;
-    return square;
-  });
+  return 100;
+});
 
-  Console.WriteLine(task2.Result);
+var task2 = task1.ContinueWith(task =>
+{
+  var num = task.Result;
+  var square = num * num;
+  return square;
+});
 
-  Console.Read();
-}
+Console.WriteLine(task2.Result);
 ```
 
 3.`Task.WhenAll<TResult>/WhenAny`
 
-```
-static void Main(string[] args)
+```cs
+Task<int> task1 = Task.Factory.StartNew(() =>
 {
-  Task<int> task1 = Task.Factory.StartNew(() =>
-  {
-    //在这个地方可以编写自己需要的逻辑部分...
+  //在这个地方可以编写自己需要的逻辑部分...
 
-    return 100;
-  });
-  Task<int> task2 = Task.Factory.StartNew(() =>
-  {
-    //在这个地方可以编写自己需要的逻辑部分...
+  return 100;
+});
+Task<int> task2 = Task.Factory.StartNew(() =>
+{
+  //在这个地方可以编写自己需要的逻辑部分...
 
-    return 200;
-  });
+  return 200;
+});
 
-  var task3 = Task.WhenAll(new Task<int>[2] { task1, task2 });
-  var result = task3.Result;
+var task3 = Task.WhenAll(new Task<int>[2] { task1, task2 });
+var result = task3.Result;
 
-  foreach (var item in result)
-  {
-    Console.WriteLine(item);
-  }
-
-  Console.Read();
+foreach (var item in result)
+{
+  Console.WriteLine(item);
 }
 ```
