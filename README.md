@@ -74,7 +74,7 @@
 
 - [Task 中的返回值](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task6.md)
 
-6.[TPL](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Parallel.md)
+\6.[TPL](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Parallel.md)
 
 7.[async/await](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/AsyncAndAwait.md)
 
@@ -99,4 +99,3 @@
 如果你感觉有收获，欢迎给我打赏,以激励我更多输出优质开源内容!
 
  <image src="https://user-images.githubusercontent.com/28801735/58425100-8104e500-8088-11e9-9be5-928f067b0597.jpg" align="left"  width="370" height="210" />
-
