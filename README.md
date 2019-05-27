@@ -10,9 +10,9 @@
 
 #### | OOP 设计原则、继承与多态
 
-1.[面向对象核心原则概述](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/OOP_Principles/Principle.md)
+1.[面向对象核心原则概述](https://github.com/Damon-Salvatore/CSharp-Learning/issues/1)
 
-2.[没有使用继承的程序](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/OOP_Principles/NoInherit.md)
+2.[没有使用继承的程序](https://github.com/Damon-Salvatore/CSharp-Learning/issues/2)
 
 3.[使用继承改进程序](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/OOP_Principles/Inherit.md)
 
@@ -88,7 +88,7 @@
 
 4.[Post 路由详解](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WebApi/Demo/post.md)
 
-5.[项目源码](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WebApi/Demo/source.md)
+5.[项目源码](https://github.com/Damon-Salvatore/CSharp-Learning/issues/32)
 
 #### | .NetCore
 
