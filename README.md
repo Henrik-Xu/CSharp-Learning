@@ -1,10 +1,12 @@
 # 博客目录
 
-之前看了一些文章，但是没有总结，从今年开始逐渐将自己的所看所想记录下来，本博客侧重于 `C#` 基础语法的知识学习，通过例子的方式达到
+之前看了一些文章，但是没有总结，从今年开始逐渐将自己的所看所想记录下来，本博客侧重于 `C#` 基础语法的知识学
 
-讲述语法的目的。同时也是为了跟更多的程序员交流，欢迎大家一起讨论，不足的地方欢迎大家指出。目前只有写博客的想法，争取提供优质的文章，
+习，通过例子的方式达到讲述语法的目的。同时也是为了跟更多的程序员交流，欢迎大家一起讨论，不足的地方欢迎大家
 
-其余比如公众号，其他平台的博客以后再说，暂时没有想法。刚刚起步，请多指教~
+指出。目前只有写博客的想法，争取提供优质的文章，其余比如公众号，其他平台的博客以后再说，暂时没有想法。
+
+刚刚起步，请多指教~
 
 #### | OOP 设计原则、继承与多态
 
@@ -60,17 +62,17 @@
 
 5.[Task](https://github.com/Damon-Salvatore/CSharp-Learning/tree/master/AsynProgramming/Task/demo.md)
 
-- 1. [Task 的基本使用 1](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task.md)
+- [Task 的基本使用 1](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task.md)
 
-- 2. [Task 的基本使用 2](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task2.md)
+- [Task 的基本使用 2](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task2.md)
 
-- 3. [Task 的基本使用 3](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task3.md)
+- [Task 的基本使用 3](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task3.md)
 
-- 4. [Task 的基本使用 4](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task4.md)
+- [Task 的基本使用 4](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task4.md)
 
-- 5. [Task 的基本使用 5](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task5.md)
+- [Task 的基本使用 5](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task5.md)
 
-- 6. [Task 中的返回值](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task6.md)
+- [Task 中的返回值](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Task/Task6.md)
 
   6.[TPL](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/AsynProgramming/Parallel.md)
 
