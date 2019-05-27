@@ -1,16 +1,18 @@
-## ASP.NET-WebAPI2
+## ASP.NET WebAPI2
 
 ### 什么是 `ASP.NET-WebAPI`？
 
-`ASP.NET Web API` 是一种框架，用于轻松构建可以访问多种客户端（包括浏览器和移动设备）的 `HTTP` 服务。`ASP.NET Web API` 
+`ASP.NET Web API` 是一种框架，用于轻松构建可以访问多种客户端（包括浏览器和移动设备）的 `HTTP` 服务。 
 
-是一种用于在 `.NET Framework` 上构建`RESTful` 应用程序的理想平台。
+`ASP.NET Web API`是一种用于在 `.NET Framework` 上构建`RESTful` 应用程序的理想平台。
 
 ### 关于`RESTful`的理解
 
-1.`REST` 是英文 `representational state transfer`(表象性状态转变)或者表述性状态转移; `Rest` 是 `web` 服务的一种架构风格; 使用 
+1.`REST` 是英文 `representational state transfer`(表象性状态转变)或者表述性状态转移; `Rest` 是 `web` 服务的一种架构风 
 
-`HTTP`,`URI`,`XML`,`JSON`,`HTML`等广泛流行的标准和协议;轻量级,跨平台,跨语言的架构设计; 它是一种设计风格,不是一种标准,是一种思想。
+格; 使用`HTTP`,`URI`,`XML`,`JSON`,`HTML`等广泛流行的标准和协议;轻量级,跨平台,跨语言的架构设计; 它是一种设计风格,不是一
+
+种标准,是一种思想。
 
 2.`Rest` 架构的主要原则：
 
