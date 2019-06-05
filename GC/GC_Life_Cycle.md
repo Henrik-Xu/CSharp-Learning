@@ -18,11 +18,11 @@
 MyCustomObject instance = new MyCustomObject();
 ```
 
-new 关键字返回的是一个指向堆上对象的引用，而不是真正的对象本身。并且，垃圾回收器使用了两个不同的堆，一个专门用来存
+new 关键字返回的是一个指向堆上对象的引用，而不是真正的对象本身。并且，垃圾回收器使用了两个不同的堆，一个专门
 
-储非常大的对象，这个堆在回收周期中较少顾及，因为要重新定位大对象的性能开销很大。
+用来存储非常大的对象，这个堆在回收周期中较少顾及，因为要重新定位大对象的性能开销很大。
 
-![对象与变量的关系]()
+![对象与变量的关系](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/GC/capture.png)
 
 如何定义一个对象不在需要：简短来说只有在一个对象从代码库的任何部分都不可访问时，垃圾回收器就会从堆中删除它。
 
@@ -60,11 +60,11 @@ new 关键字返回的是一个指向堆上对象的引用，而不是真正的�
 
 的应用程序中。于是，代(generation)的概念便随着产生。
 
-堆上的每一个对象被指定属于某“代”(generation)。代的设计思路很简单：对象在堆上存在的时间越长，它就更可能应该保留。
+堆上的每一个对象被指定属于某“代”(generation)。代的设计思路很简单：对象在堆上存在的时间越长，它就更可能应该保
 
-例如：定义桌面应用程序主窗口的类将一直停留在内存中直到应用程序结束。相反，最近放在堆上的对象可能很快就不可访问了
+留。例如：定义桌面应用程序主窗口的类将一直停留在内存中直到应用程序结束。相反，最近放在堆上的对象可能很快就不
 
-（例如在一个方法作用域中创建的对象）。基于这些假设，堆上的每一个对象都属于下列某代。
+可访问了（例如在一个方法作用域中创建的对象）。基于这些假设，堆上的每一个对象都属于下列某代。
 
 1. 第 0 代：从没有被标记为回收的新分配的对象。
 
@@ -78,9 +78,9 @@ new 关键字返回的是一个指向堆上对象的引用，而不是真正的�
 
 被提升到第 1 代。如果算上所有的第 0 代对象后，仍然需要更多的内存，就会检查第 1 代对象的"可访问性"并相应地进行
 
-回收。没有被回收的第一代对象随后被提升到第 2 代。如果垃圾回收器仍然需要更多的内存，它会检查第 2 代对象的可访问
+回收。没有被回收的第一代对象随后被提升到第 2 代。如果垃圾回收器仍然需要更多的内存，它会检查第 2 代对象的可访
 
-性。这时，如果一个第 2 代对象在垃圾回收后仍然存在，它仍然是第 2 代对象，因为这是预定义的对象代的上限。
+问性。这时，如果一个第 2 代对象在垃圾回收后仍然存在，它仍然是第 2 代对象，因为这是预定义的对象代的上限。
 
 #### 并发回收和后台回收
 
@@ -96,9 +96,9 @@ new 关键字返回的是一个指向堆上对象的引用，而不是真正的�
 
 [GC](https://docs.microsoft.com/zh-CN/dotnet/api/system.gc?view=netframework-4.8)
 
-作用：通过编程使用一些静态成员与垃圾回收器进行交互。（注意：一般我们不需要编程通过 `GC` 类来垃圾回收,可能会造成
+作用：通过编程使用一些静态成员与垃圾回收器进行交互。（注意：一般我们不需要编程通过 `GC` 类来垃圾回收,可能会造
 
-性能问题）。
+成性能问题）。
 
 强制垃圾回收：一些场景下，通过编程使用 `GC.Collect()` 强制垃圾回收可能会有好处，即你对你写的代码有把握：
 
@@ -176,7 +176,9 @@ protected override void Finalize()
 
 2. 手动调用 `GC.Collect()`方法
 
-3. 应用程序域从内存中卸载时：当应用程序域从内存中卸载时，`CLR`自动调用在它的生命周期中创建的每一个可终结对象的终结器。
+3. 应用程序域从内存中卸载时：当应用程序域从内存中卸载时，`CLR`自动调用在它的生命周期中创建的每一个可终结对象
+
+的终结器。
 
 使用终结器释放资源：
 
@@ -190,9 +192,9 @@ protected override void Finalize()
 
 #### 显示释放资源（IDisposable）
 
-针对如上非托管资源的释放问题，我们应该实现 `IDisposable` 接口，手动释放资源，因为非托管资源都是非常宝贵的，如数据库和文件句柄
+针对如上非托管资源的释放问题，我们应该实现 `IDisposable` 接口，手动释放资源，因为非托管资源都是非常宝贵的，如
 
-，所以它们应该尽可能快的被清除，而不能靠垃圾回收的发生。这样可大大提高应用程序的性能。
+数据库和文件句柄，所以它们应该尽可能快的被清除，而不能靠垃圾回收的发生。这样可大大提高应用程序的性能。
 
 ```cs
 public interface IDisposable
@@ -208,8 +210,8 @@ public interface IDisposable
 ```cs
 class MyClass:IDisposable
 {
-  // 是否释放的标志
-  bool disposed = false;
+  // 私有标志，用来判断Dispose()是否已经被调用
+  private bool disposed = false;
 
   public void Dispose()
    {
@@ -218,14 +220,15 @@ class MyClass:IDisposable
       GC.SuppressFinalize(this);
    }
 
-   protected virtual void Dispose(bool disposing)
+   private  void Dispose(bool disposing)
    {
       if (disposed)
          return;
 
       if (disposing) {
-         // 释放非托管资源
+         // 释放托管资源
       }
+      //释放非托管的资源
 
       // 表示已经释放过
       disposed = true;
@@ -270,7 +273,11 @@ using(var myComObject = new MyComObject())
 }
 ```
 
-注意：`using`包含的需要释放的资源应该包裹在 `using`语句块中,不应该在 `using`外部初始化示例。否则在调用时可能报错。
+注意：
+
+1.`using`包含的需要释放的资源应该包裹在 `using`语句块中,不应该在 `using`外部初始化示例。否则在调用时可能报错。
+
+2. `using(var r1 = new MyResource1(),var r2 = new MyResource2())`,`using`支持多个对象的同时声明。
 
 ```cs
 var myComObject = new MyComObject()
@@ -284,6 +291,6 @@ myComObject.SomeProperty = CustomProperty;// 可能会报错
 
 #### 参考文章
 
-[精通 C#]()
+_精通 C#_
 
 [终结器](https://docs.microsoft.com/zh-CN/dotnet/csharp/programming-guide/classes-and-structs/destructors)

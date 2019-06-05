@@ -94,6 +94,10 @@
 
 1.[.NetCore](https://github.com/Damon-Salvatore/CSharp-Learning/issues/32)
 
+#### | 对象的生命周期
+
+1.[垃圾回收机制详解](https://github.com/Damon-Salvatore/CSharp-Learning/issues/33)
+
 #### | 赞赏
 
 如果你感觉有收获，欢迎给我打赏,以激励我更多输出优质开源内容!
