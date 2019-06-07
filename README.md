@@ -98,6 +98,10 @@
 
 1.[垃圾回收机制详解](https://github.com/Damon-Salvatore/CSharp-Learning/issues/33)
 
+#### | 异常处理
+
+1.[正确的处理 C# 程序中的异常](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/Exception/exception.md)
+
 #### | 赞赏
 
 如果你感觉有收获，欢迎给我打赏,以激励我更多输出优质开源内容!
