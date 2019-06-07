@@ -100,7 +100,7 @@
 
 #### | 异常处理
 
-1.[正确的处理 C# 程序中的异常](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/Exception/exception.md)
+1.[正确的处理 C# 程序中的异常](https://github.com/Damon-Salvatore/CSharp-Learning/issues/34)
 
 #### | 赞赏
 
