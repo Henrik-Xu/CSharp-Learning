@@ -148,15 +148,15 @@ static void Main(string[] args)
 
 1. `basicHttpBinding`
 
-2. `netTcpBinding`: 使用场合： 两个`.NET` 程序搭建的一个跨机器访问情景。`tcp` 远比 `http` [也就是 `BasicHttpBinding`] 快的多。
+2. `netTcpBinding`: 使用场合： 两个`.NET` 程序搭建的一个跨机器访问情景。`tcp` 远比 `http` [也就是 `BasicHttpBinding`]
 
-`http` 通常是 `.NET` 程序和非 `.NET` 程序通信，不能使用 `tcp` 的情况下，使用 `SOAP`。
+快的多。`http` 通常是 `.NET` 程序和非 `.NET` 程序通信，不能使用 `tcp` 的情况下，使用 `SOAP`。
 
-3. `NetMSMQBinding` : 使用场合：封装以前的 `MSMQ` 的一个专用类，用于构建离线访问，`MSMQ` 就像一个蓄水池（参考图片），
+3. `NetMSMQBinding` : 使用场合：封装以前的 `MSMQ` 的一个专用类，用于构建离线访问，`MSMQ` 就像一个蓄水池（参考
 
-上游是 `Client`，一直往 `MSMQ` 添加。 客户端和服务器端有一个消息队列。`MSMQ`它是一个基于硬盘的形式（文本文件）。
+图片），上游是 `Client`，一直往 `MSMQ` 添加。 客户端和服务器端有一个消息队列。`MSMQ`它是一个基于硬盘的形式（文本
 
-生活中的例子：菜鸟驿站
+文件）。生活中的例子：菜鸟驿站
 
 ![MSMQ](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/msmq.png)
 
@@ -248,6 +248,8 @@ public interface ITeachService
 
 ![updateserviceerror](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/updateservice.png)
 
+![updateserviceerror](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/configerror.png)
+
 把客户端配置文件全部删掉，只保留一个 `configuration` 节点，再更新。
 
 最终服务器端代码
@@ -255,10 +257,10 @@ public interface ITeachService
 ```cs
 public class TeachService : ITeachService
 {
-    public void GetCourseName(int courseId)
-    {
-        Console.WriteLine($"接收到TeachService消息！课程编号：{courseId} 时间：{DateTime.Now.ToLongTimeString()}");
-    }
+  public void GetCourseName(int courseId)
+  {
+      Console.WriteLine($"接收到TeachService消息！课程编号：{courseId} 时间：{DateTime.Now.ToLongTimeString()}");
+  }
 }
 ```
 
