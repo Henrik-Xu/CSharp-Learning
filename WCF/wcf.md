@@ -143,3 +143,41 @@ static void Main(string[] args)
   Console.Read();
 }
 ```
+
+#### WCF 常见 Binding
+
+1. `basicHttpBinding`
+
+2. `netTcpBinding`: 使用场合： 两个`.NET` 程序搭建的一个跨机器访问情景。`tcp` 远比 `http` [也就是 `BasicHttpBinding`] 快的多。
+
+`http` 通常是 `.NET` 程序和非 `.NET` 程序通信，不能使用 `tcp` 的情况下，使用 `SOAP`。
+
+3. `NetMSMQBinding` : 使用场合：封装以前的 `MSMQ` 的一个专用类，用于构建离线访问，`MSMQ` 就像一个蓄水池（参考图片），
+
+上游是 `Client`，一直往 `MSMQ` 添加。 客户端和服务器端有一个消息队列。`MSMQ`它是一个基于硬盘的形式（文本文件）。
+
+生活中的例子：菜鸟驿站
+
+![MSMQ]()
+
+`NetMSMQBinding` 的使用：
+
+1. 检查计算机是否安装消息队列 `MSMQ`,如果没有安装，请按照如下方法:
+
+在计算机管理面板->程序->启动和关闭 Windows 功能->找到 MSMQ 服务器，选中，并确定。
+
+![OpenMsMq]()
+
+在桌面->右键点击计算机（或此电脑）->管理->服务和应用程序下面的子节点->消息队列->专用消息对队列
+
+![newMSMQ]()
+
+点击空白处->新建一个消息队列（和 `ClientApp` 配置文件中 `address` 最后的消息队列名称一样的消息队列 `myteachservice`，
+
+注意：勾选“事务性”
+
+![newQueue]()
+
+最终效果：
+
+![queue]()
