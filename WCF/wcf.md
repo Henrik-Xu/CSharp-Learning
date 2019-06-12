@@ -248,7 +248,7 @@ public interface ITeachService
 
 ![updateserviceerror](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/updateservice.png)
 
-![updateserviceerror](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/configerror.png)
+![configerror](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/configerror.png)
 
 把客户端配置文件全部删掉，只保留一个 `configuration` 节点，再更新。
 
@@ -288,10 +288,10 @@ static void Main(string[] args)
 
 最后的运行结果
 
-服务端
+消息队列
 
-![updateserviceerror](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/wcfserver.png)
+![queueresult](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/messagequeue.png)
 
-客户端
+服务端客户端
 
-![updateserviceerror](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/wcfclient.png)
+![serverresult](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/wcfserver.png)
