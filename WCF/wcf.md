@@ -156,7 +156,9 @@ static void Main(string[] args)
 
 #### WCF 常用 Binding
 
-1.`BasicHttpBinding`：符合 `WS` 的 `HTTP` 协议绑定，适用于连接到 `Web` 服务的基本配置文件规范 (例如，基于`ASP.NET Web` 服务的服务）。
+1.`BasicHttpBinding`：符合 `WS` 的 `HTTP` 协议绑定，适用于连接到 `Web` 服务的基本配置文件规范 (例如，
+
+基于`ASP.NET Web` 服务的服务）。
 
 2.`WSHttpBinding`：可互操作绑定，适用于连接到终结点符合 `WS-*` 协议。
 
@@ -164,13 +166,15 @@ static void Main(string[] args)
 
 4. `NetTcpBinding`: 此绑定提供了比 `HTTP` 绑定更高的性能。使用场合： 两个`.NET` 程序搭建的一个跨机器访问情景。
 
-`tcp` 远比 `http` [也就是 `BasicHttpBinding`]快的多。`http` 通常是 `.NET` 程序和非 `.NET` 程序通信，不能使用 `tcp` 的情况下，使用 `SOAP`。
+`tcp` 远比 `http` [也就是 `BasicHttpBinding`]快的多。`http` 通常是 `.NET` 程序和非 `.NET` 程序通信，不能使用 `tcp` 的情
+
+况下，使用 `SOAP`。
 
 5. `NetMSMQBinding` : 使用场合：封装以前的 `MSMQ` 的一个专用类，用于构建离线访问，`MSMQ` 就像一个蓄水池（参考
 
 图片），上游是 `Client`，一直往 `MSMQ` 添加。 客户端和服务器端有一个消息队列。`MSMQ`它是一个基于硬盘的形式（文本
 
-文件）。生活中的例子：菜鸟驿站
+文件）。
 
 ![MSMQ](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/msmq.png)
 
@@ -309,3 +313,9 @@ static void Main(string[] args)
 服务端客户端
 
 ![serverresult](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/WCF/wcfserver.png)
+
+#### 总结
+
+本文讲述了`WCF`的基础知识，这将在我们使用 `WCF`创建服务中十分有用，对于`WCF`来说，还有很多很深入的地方，
+
+我们可以在工作中边使用边学习。
