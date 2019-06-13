@@ -112,6 +112,16 @@ static void Main(string[] args)
   </system.serviceModel>
 ```
 
+使用 `Windows 服务`承载 `WCF`：
+
+[创建 Windows 服务](https://docs.microsoft.com/zh-CN/dotnet/framework/windows-services/walkthrough-creating-a-windows-service-application-in-the-component-designer)
+
+[使用 Windows 服务承载 WCF 服务](https://docs.microsoft.com/zh-CN/dotnet/framework/wcf/feature-details/how-to-host-a-wcf-service-in-a-managed-windows-service)
+
+使用 `IIS` 承载 `WCF`服务
+
+[如何：在 IIS 中承载 WCF 服务](https://docs.microsoft.com/zh-CN/dotnet/framework/wcf/feature-details/how-to-host-a-wcf-service-in-iis)
+
 #### ABC 详解
 
 基于 `WCF` 实现客户端和服务端通信，必须了解 `ABC` 的概念
