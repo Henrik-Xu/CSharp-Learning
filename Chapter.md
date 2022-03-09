@@ -102,8 +102,4 @@
 
 1.[正确的处理 C# 程序中的异常](https://github.com/Damon-Salvatore/CSharp-Learning/blob/master/Exception/exception.md)
 
-#### | 赞赏
-
-如果你感觉有收获，欢迎给我打赏,以激励我更多输出优质开源内容!
-
- <image src="https://user-images.githubusercontent.com/28801735/58425100-8104e500-8088-11e9-9be5-928f067b0597.jpg" align="left"  width="370" height="210" />
+#### | AOP 面向切面编程
