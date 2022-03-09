@@ -106,6 +106,6 @@
 
 [WCF总结](https://github.com/Damon-Salvatore/CSharp-Learning/issues/35)
 
-#### | WCF
+#### | AOP
 
 [AOP](https://github.com/Damon-Salvatore/CSharp-Learning/issues/36)
