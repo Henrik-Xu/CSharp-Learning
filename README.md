@@ -86,7 +86,7 @@
 
 #### | .NetCore
 
-1.[.NetCore](https://github.com/Damon-Salvatore/CSharp-Learning/issues/32)
+1.[.Net Core 的新型配置系统](https://github.com/Damon-Salvatore/CSharp-Learning/issues/32)
 
 #### | 对象的生命周期
 
