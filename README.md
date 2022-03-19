@@ -86,11 +86,13 @@
 
 #### | .NetCore
 
-1.[.Net Core 的新型配置系统](https://github.com/Damon-Salvatore/CSharp-Learning/issues/32)
+1.[`.Net Core` 的新型配置系统](https://github.com/Damon-Salvatore/CSharp-Learning/issues/32)
 
 2.[`ASP.net core` 跨平台原理分析](https://github.com/Damon-Salvatore/CSharp-Learning/issues/38)
 
 3.[`Kestrel` 服务器源码解读和 `IOC` 容器依赖注入 `DI`](https://github.com/Damon-Salvatore/CSharp-Learning/issues/39)
+
+4.[`Net Core` 内置 `DI` 容器解读](https://github.com/Damon-Salvatore/CSharp-Learning/issues/40)
 
 #### | 对象的生命周期
 
