@@ -94,6 +94,8 @@
 
 4.[`Net Core` 内置 `DI` 容器解读](https://github.com/Damon-Salvatore/CSharp-Learning/issues/40)
 
+4.[第三方 `DI` 容器 `Autofac` 与 `AOP`](https://github.com/Damon-Salvatore/CSharp-Learning/issues/41)
+
 #### | 对象的生命周期
 
 1.[垃圾回收机制详解](https://github.com/Damon-Salvatore/CSharp-Learning/issues/33)
