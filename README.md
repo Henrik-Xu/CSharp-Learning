@@ -84,18 +84,6 @@
 
 5.[项目源码](https://github.com/Damon-Salvatore/CSharp-Learning/issues/31)
 
-#### | .NetCore
-
-1. [`.Net Core` 的新型配置系统](https://github.com/Damon-Salvatore/CSharp-Learning/issues/32)
-
-2. [`ASP.net core` 跨平台原理分析](https://github.com/Damon-Salvatore/CSharp-Learning/issues/38)
-
-3. [`Kestrel` 服务器源码解读和 `IOC` 容器依赖注入 `DI`](https://github.com/Damon-Salvatore/CSharp-Learning/issues/39)
-
-4. [`Net Core` 内置 `DI` 容器解读](https://github.com/Damon-Salvatore/CSharp-Learning/issues/40)
-
-5. [第三方 `DI` 容器 `Autofac` 与 `AOP`](https://github.com/Damon-Salvatore/CSharp-Learning/issues/41)
-
 #### | 对象的生命周期
 
 1.[垃圾回收机制详解](https://github.com/Damon-Salvatore/CSharp-Learning/issues/33)
@@ -115,3 +103,15 @@
 #### | Unity
 
 [Unity](https://github.com/Damon-Salvatore/CSharp-Learning/issues/37)
+
+#### | .NetCore
+
+1. [`.Net Core` 的新型配置系统](https://github.com/Damon-Salvatore/CSharp-Learning/issues/32)
+
+2. [`ASP.net core` 跨平台原理分析](https://github.com/Damon-Salvatore/CSharp-Learning/issues/38)
+
+3. [`Kestrel` 服务器源码解读和 `IOC` 容器依赖注入 `DI`](https://github.com/Damon-Salvatore/CSharp-Learning/issues/39)
+
+4. [`Net Core` 内置 `DI` 容器解读](https://github.com/Damon-Salvatore/CSharp-Learning/issues/40)
+
+5. [第三方 `DI` 容器 `Autofac` 与 `AOP`](https://github.com/Damon-Salvatore/CSharp-Learning/issues/41)
